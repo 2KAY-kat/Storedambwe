@@ -83,7 +83,7 @@ export const nav = [{
 }, {
     icon: 'search',
     name: 'SEARCH',
-    link: ''
+    link: '.html'
 }, {
     icon: 'bell',
     name: 'NOTIFICATIONS',
