@@ -79,7 +79,7 @@ export const nav = [{
 }, {
     icon: 'shop',
     name: 'STORE',
-    link: 'products.html'
+    link: 'index.html'
 }, {
     icon: 'search',
     name: 'SEARCH',

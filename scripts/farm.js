@@ -96,7 +96,7 @@ backToTop.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
+/*
 let startY = 0;
 let isPulling = false;
 
@@ -139,3 +139,4 @@ document.addEventListener('touchend', function() {
     isPulling = false;
   }
 });
+*/
