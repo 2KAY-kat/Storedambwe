@@ -142,7 +142,8 @@ header {
   */
 
 .hero-text {
-  width: auto;
+  margin-top: 40px;
+  width: 60%;
   padding: 20px;
 }
 .hero-text h1 {
@@ -217,10 +218,51 @@ header {
   color: var(--border-color);
   border-color: var(--text-color);
 }
+
+.view-details {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between the buttons as needed */
+}
+
+.view-details .btn1,
+.view-details .btn2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-details .btn2 a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/*
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button .btn1 {
+  text-align: center;
+}
+
+button .btn2 {
+  text-align: center;
+}
+/*
 button .fa-shopping-cart {
   align-items: center;
   text-align: center;
 }
+*/
+
 .btn1 {
   width: 20%;
   background-color: var(--accent-color);
@@ -245,6 +287,7 @@ button .fa-shopping-cart {
   font-size: 16px;
   cursor: pointer;
 }
+
 .btn1:hover {
   background-color: var(--main-color);
   color: var(--text-mix-color);
@@ -398,8 +441,9 @@ html::-webkit-scrollbar-truck {
 html::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, var(--main-color) var(--text-color));
   border-radius: 20px;
-} */
+} 
   
+*/
 /****  CHECKOUT PAGE STYLES *****/
 .main {
   max-width: 1100px;
