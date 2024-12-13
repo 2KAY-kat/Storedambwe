@@ -10,7 +10,7 @@ header.forEach((header) => {
     headerHTML += `
   
         <div class="header-logo">
-            <p class="logoTitle"><a href="index.html">${header.name} <i class="fa fa-shopping-cart"></i></a></p>
+            <a class="logoTitle" href="index.html">${header.name}</a>
         </div>
       
     <div class="header-mid">

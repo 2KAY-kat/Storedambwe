@@ -42,42 +42,33 @@ header {
   flex-grow: 1;
   display: flex;
 } /* .header-logo img { width: 100px; } */
-.header-logo p.logoTitle {
+.header-logo .logoTitle {
   padding: 10px;
   background-color: var(--text-mix-color);
   border-radius: 5px;
   transition: var(--fades);
-}
-.header-logo p.logoTitle a {
   font-weight: bolder;
   color: var(--main-color);
   font-size: 1rem;
   text-decoration: none;
 }
-.header-logo p.logoTitle a:hover {
+.header-logo .logoTitle:hover {
   color: var(--text-color);
 }
 .header-mid {
   flex-grow: 1;
-  text-align: center;
-  justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
   display: flex;
 }
 .header-right {
   flex-grow: 1;
   display: flex;
-  justify-content: end;
 }
 .header-fa i {
-  width: 50px;
   color: var(--main-color);
   cursor: pointer;
 }
 .header-fa i:hover {
   color: var(--main-color);
-  cursor: pointer;
 }
 .cart-plus {
   display: inline-block;
@@ -397,8 +388,15 @@ button .fa-shopping-cart {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
   header {
-    padding: 12px;
+    display: grid;
+    padding: 6px;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 2px;
   }
+  .header-logo {
+    font-size: small;
+  }
+
   .header-logo,
   .header-mid,
   .header-right {
