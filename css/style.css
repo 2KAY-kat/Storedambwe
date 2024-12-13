@@ -109,11 +109,11 @@ header {
 .hero {
   display: flex;
   align-items: center;
-  height: 80vh; /* Full height */
+  height: 80vh;
   background-image: url('../images/bacola-banner-01.jpg');
-  background-position: left center; /* Align to the left and center vertically */
-  background-size: cover; /* Cover the entire section */
-  background-repeat: no-repeat; /* No repeating */
+  background-position: left center;
+  background-size: cover; 
+  background-repeat: no-repeat; 
 }
 
 /*
