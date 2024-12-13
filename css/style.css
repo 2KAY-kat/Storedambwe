@@ -105,17 +105,32 @@ header {
 .cart-quantity {
   color: var(--text-mix-color);
 }
+
 .hero {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(
+  height: 80vh; /* Full height */
+  background-image: url('../images/bacola-banner-01.jpg');
+  background-position: left center; /* Align to the left and center vertically */
+  background-size: cover; /* Cover the entire section */
+  background-repeat: no-repeat; /* No repeating */
+}
+
+/*
+.hero {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
     to bottom,
     var(--main-color),
     var(--accent-color)
-  );
+  )
+  url(../images/bacola-banner-01.jpg) no-repeat; 
   height: 80vh;
 }
-.hero-image {
+*/
+
+/*.hero-image {
   width: 40%;
   margin-top: 25px;
   padding: 6px;
@@ -124,13 +139,15 @@ header {
   width: 100%;
   border-radius: 5px;
 }
+  */
+
 .hero-text {
-  width: 50%;
+  width: auto;
   padding: 20px;
 }
 .hero-text h1 {
   font-size: 48px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .hero .btn2 {
   background-color: var(--text-mix-color);
@@ -141,6 +158,7 @@ header {
   cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;
+  margin-top: 18px;
   font-size: 16px;
   transition: var(--fades);
 }
