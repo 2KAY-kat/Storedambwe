@@ -14,7 +14,7 @@ header.forEach((header) => {
         </div>
       
     <div class="header-mid">
-        Your Online Store
+        Online Mall
       </div>
 
         <div class="header-right">
@@ -41,7 +41,7 @@ products.forEach((product) => {
         <button class="btn1 add-to-cart js-add-to-cart"
                         data-product-id="${product.id}"><i
                                     class="fa fa-shopping-cart"></i></button>
-        <button class="btn2"><a href="view-details.html">Details</a></button>
+        <button class="btn2"><a href="view-details.html?id=${product.id}">Details</a></button>
      </div>
 
 </div>
