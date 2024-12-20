@@ -85,10 +85,6 @@ export const nav = [{
     name: 'SEARCH',
     link: '.html'
 }, {
-    icon: 'bell',
-    name: 'NOTIFICATIONS',
-    link: ''
-}, {
     icon: 'shopping-cart',
     name: 'CART',
     link: 'checkout.html'
