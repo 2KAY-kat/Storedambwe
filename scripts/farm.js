@@ -28,13 +28,14 @@ header.forEach((header) => {
 headerHTML += `
 
         <div class="nav-logo">
+            <img class="logo-navlogo-nav" src="${header.image}" alt="" />
             <p class="dambwe">${header.name}</p>
         </div>
         <ul class="nav-menu">
             <p>Marketplace</p>
         </ul>
         <div class="nav-login-cart">
-            <i class="fa fa-shopping-cart"></i>
+            <a href="${header.link}"><i class="fa fa-shopping-cart"></i></a>
             <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>
         </div>
     `;

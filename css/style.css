@@ -5,6 +5,7 @@
   --border-color: #555;
   --main-color: #0056b3;
   --text-color: #333;
+  --nav-background: #6e6e6e;
   --link-hover: #ddd;
   --text-mix-color: #fff;
   --random-color: #ddd;
@@ -32,7 +33,7 @@ body {
 ***********************************/
 
 .navbar {
-  background: var(--accent-color);
+  background: var(--nav-background);
   color: var(--text-mix-color);
   display: flex;
   justify-content: space-around;
@@ -53,9 +54,10 @@ body {
 }
 
 .nav-logo p {
-  color: var(--text-mix-color);
+  color: var(--main-color);
   font-size: 20px;
   text-transform: capitalize;
+  font-weight: 600;
 }
 
 .nav-menu {
@@ -63,7 +65,7 @@ body {
   align-items: center;
   list-style: none;
   gap: 50px;
-  color: #626262;
+  color: var(--text-color);
   font-size: 20px;
   font-weight: 500;
 }
@@ -89,6 +91,14 @@ body {
   display: flex;
   align-items: center;
   gap: 45px;
+}
+
+.nav-login-cart a {
+  color: var(--text-mix-color);
+}
+
+.nav-login-cart a:hover {
+  color: var(--text-color);
 }
 
 .nav-login-cart button {
@@ -128,7 +138,7 @@ body {
   }
  
   p.dambwe {
-    display: inline-block;
+    display: none;
     height: 35px;
     margin-top: 5px;
   }
@@ -163,7 +173,7 @@ body {
 
 /**********************************
 ***********************************
-      Start  Temporary Header
+     End  Temporary Header
 ***********************************
 ***********************************/
 /**
@@ -286,27 +296,33 @@ header {
   margin-bottom: 20px;
 }
 .hero .btn2 {
-  background-color: var(--text-mix-color);
-  color: var(--accent-color);
-  border: solid 2px var(--border-color);
-  padding: 8px 18px;
-  border-radius: 20px;
+  width: auto;
+  height: 58px;
+  outline: none;
+  border: 1px solid var(--random-color);
+  border-radius: 75px;
+  color: #515151;
+  font-size: 15px;
+  font-weight: 500;
+  background: white;
   cursor: pointer;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-top: 18px;
-  font-size: 16px;
   transition: var(--fades);
+  padding: 10px;
 }
 .hero .btn2 a {
   text-decoration: none;
   text-transform: uppercase;
-  color: var(--text-color);
+  color: var(--main-color);
 }
+.hero .btn2 a:hover {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--text-mix-color);
+}
+
 .hero .btn2:hover {
-  color: var(--random-color);
-  background-color: var(--border-color);
-  border: solid 2px var(--random-color);
+  background-color: var(--main-color);
+  border: solid 1px var(--random-color);
 }
 .products {
   padding: 20px;
