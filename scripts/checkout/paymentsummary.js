@@ -21,13 +21,20 @@ export function renderPaymentSummary() {
     const taxDollar = totalBeforeTaxDollar * 0.1;
     const totalDollar = totalBeforeTaxDollar + taxDollar;
 
+    let cartQuantity = 0;
+
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+      });
+    
+
     const paymentsummaryHTML = `
             <div class="payment-summary-title">
                 Order Summary
             </div>
 
             <div class="payment-summary-row">
-                <div>Items (0):</div>
+                <div>Items (${cartQuantity}):</div>
                 <div class="payment-summary-money">MK${formatCurrency(productDollar)}</div>
             </div>
 

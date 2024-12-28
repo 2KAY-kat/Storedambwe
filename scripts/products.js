@@ -11,8 +11,8 @@ export function getProduct(productId) {
 }
 
 export const header = [{
-    image: 'images/Dambwe-STORE.svg',
-    name: 'StoreDambwe'
+    image: 'images/Storedambwe-logo-v-1.0-02.png',
+    name: 'STOREDAMBWE'
 }];
 
 export const products = [{

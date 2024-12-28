@@ -6,10 +6,10 @@ let headerHTML = '';
 let productsHTML = '';
 let navHTML = '';
 
-header.forEach((header) => {
-    headerHTML += `
+/** *
+
   
-        <div class="header-logo">
+       /**  <div class="header-logo">
             <a class="logoTitle" href="index.html">${header.name}</a>
         </div>
       
@@ -19,14 +19,29 @@ header.forEach((header) => {
 
         <div class="header-right">
             <a class="header-fa" href="checkout.html"> <i class="fa fa-shopping-cart cart-plus"></i>
-            <div class="cart-quantity js-cart-quantity cart-plus">0</div> </a>
+            <div class="cart-quantity js-cart-quantity cart-plus"></div> </a>
         </div>
+        </div>**/
+
+
+header.forEach((header) => {
+headerHTML += `
+
+        <div class="nav-logo">
+            <p class="dambwe">${header.name}</p>
+        </div>
+        <ul class="nav-menu">
+            <p>Marketplace</p>
+        </ul>
+        <div class="nav-login-cart">
+            <i class="fa fa-shopping-cart"></i>
+            <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>
         </div>
     `;
 })
 
 
-document.querySelector('header').innerHTML = headerHTML;
+document.querySelector('.navbar').innerHTML = headerHTML;
 
 products.forEach((product) => {
     productsHTML += `

@@ -23,6 +23,150 @@ body {
   font-family: Roboto, Arial;
   color: var(--text-color);
 }
+
+
+/**********************************
+***********************************
+      Start  Temporary Header
+***********************************
+***********************************/
+
+.navbar {
+  background: var(--accent-color);
+  color: var(--text-mix-color);
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  box-shadow: 0 1px 3px -2px black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo p {
+  color: var(--text-mix-color);
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 50px;
+  color: #626262;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-menu li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+}
+
+.nav-menu hr {
+  border: none;
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background: #ff4141;
+}
+
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.nav-login-cart button {
+  width: 157px;
+  height: 58px;
+  outline: none;
+  border: 1px solid #7a7a7a;
+  border-radius: 75px;
+  color: #515151;
+  font-size: 20px;
+  font-weight: 500;
+  background: white;
+  cursor: pointer;
+}
+
+.nav-login-cart button:active {
+  background: #f3f3f3;
+}
+
+.nav-cart-count {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -35px;
+  margin-left: -55px;
+  border-radius: 11px;
+  font-size: 14px;
+  background: var(--main-color);
+  color: white;
+}
+
+@media (max-width: 575px) {
+  .nav-logo {
+    width: auto;
+  }
+ 
+  p.dambwe {
+    display: inline-block;
+    height: 35px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav-menu {
+    font-size: 20px;
+    margin-right: 60px;
+  }
+}
+@media (max-width: 575px) {
+  .nav-menu {
+    margin-right: 5px;
+  }
+}
+.nav-login-cart {
+  text-align: right;
+  width: 150px;
+}
+@media (max-width: 1000px) {
+  .nav-login-cart {
+    width: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav-login-cart {
+    width: auto;
+  }
+}
+
+/**********************************
+***********************************
+      Start  Temporary Header
+***********************************
+***********************************/
+/**
 header {
   background-color: var(--text-color);
   color: var(--text-mix-color);
@@ -42,6 +186,8 @@ header {
   flex-grow: 1;
   display: flex;
 } /* .header-logo img { width: 100px; } */
+
+/*
 .header-logo .logoTitle {
   padding: 10px;
   background-color: var(--text-mix-color);
@@ -63,16 +209,14 @@ header {
   flex-grow: 1;
   display: flex;
 }
-.header-fa i {
+.navbar i {
   color: var(--main-color);
   cursor: pointer;
 }
 .header-fa i:hover {
   color: var(--main-color);
 }
-.cart-plus {
-  display: inline-block;
-}
+
 .header-fa {
   align-items: center;
   color: var(--text-mix-color);
@@ -96,7 +240,7 @@ header {
 .cart-quantity {
   color: var(--text-mix-color);
 }
-
+*/
 .hero {
   display: flex;
   align-items: center;
@@ -387,20 +531,8 @@ button .fa-shopping-cart {
   .product-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  header {
-    display: grid;
-    padding: 6px;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
-    gap: 2px;
-  }
-  .header-logo {
-    font-size: small;
-  }
-
-  .header-logo,
-  .header-mid,
-  .header-right {
-    display: inline;
+  .nav-logo {
+    font-size: 2px;
   }
   .category-grid {
     grid-template-columns: 1fr;
@@ -463,6 +595,32 @@ html::-webkit-scrollbar-thumb {
   column-gap: 12px;
   align-items: start;
 }
+
+.quantity-input {
+  width: 30px;
+  display: none;
+}
+
+.save-quantity-link {
+  display: none;
+}
+
+.is-editing-quantity .quantity-input {
+  display: initial;
+}
+
+.is-editing-quantity .save-quantity-link { 
+  display: initial;
+}
+
+.is-editing-quantity .quantity-label {
+  display: none;
+}
+
+.is-editing-quantity .update-quantity-link {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .main {
     max-width: 500px;
