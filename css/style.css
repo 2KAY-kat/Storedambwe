@@ -33,7 +33,7 @@ body {
 ***********************************/
 
 .navbar {
-  background: var(--nav-background);
+  background: var(--price-color);
   color: var(--text-mix-color);
   display: flex;
   justify-content: space-around;
