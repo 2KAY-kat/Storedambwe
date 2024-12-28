@@ -176,81 +176,7 @@ body {
      End  Temporary Header
 ***********************************
 ***********************************/
-/**
-header {
-  background-color: var(--text-color);
-  color: var(--text-mix-color);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 60px;
-}
-.header-logo {
-  flex-grow: 1;
-  display: flex;
-} /* .header-logo img { width: 100px; } */
 
-/*
-.header-logo .logoTitle {
-  padding: 10px;
-  background-color: var(--text-mix-color);
-  border-radius: 5px;
-  transition: var(--fades);
-  font-weight: bolder;
-  color: var(--main-color);
-  font-size: 1rem;
-  text-decoration: none;
-}
-.header-logo .logoTitle:hover {
-  color: var(--text-color);
-}
-.header-mid {
-  flex-grow: 1;
-  display: flex;
-}
-.header-right {
-  flex-grow: 1;
-  display: flex;
-}
-.navbar i {
-  color: var(--main-color);
-  cursor: pointer;
-}
-.header-fa i:hover {
-  color: var(--main-color);
-}
-
-.header-fa {
-  align-items: center;
-  color: var(--text-mix-color);
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: var(--accent-color);
-}
-.header-fa .fa:hover {
-  color: var(--border-color);
-}
-.header-fa a {
-  text-decoration: none;
-}
-.header-fa .fa {
-  color: var(--text-mix-color);
-}
-.fa:hover {
-  color: var(--text-color);
-}
-.cart-quantity {
-  color: var(--text-mix-color);
-}
-*/
 .hero {
   display: flex;
   align-items: center;
@@ -367,29 +293,6 @@ header {
   align-items: center;
   justify-content: center;
 }
-
-
-
-/*
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button .btn1 {
-  text-align: center;
-}
-
-button .btn2 {
-  text-align: center;
-}
-/*
-button .fa-shopping-cart {
-  align-items: center;
-  text-align: center;
-}
-*/
 
 .btn1 {
   width: 20%;
@@ -553,21 +456,9 @@ button .fa-shopping-cart {
     margin-bottom: 5px;
   }
 }
-/*
-html::-webkit-scrollbar {
-  width: 15px;
-  border-radius: 20px;
-}
-html::-webkit-scrollbar-truck {
-  background: var(--main-color);
-}
-html::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--main-color) var(--text-color));
-  border-radius: 20px;
-} 
-  
-*/
+
 /****  CHECKOUT PAGE STYLES *****/
+
 .main {
   max-width: 1100px;
   padding-left: 30px;

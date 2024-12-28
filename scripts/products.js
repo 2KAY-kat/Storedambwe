@@ -21,7 +21,7 @@ export const hero = [{
     hero_text_p: 'Discover our latest prodcts and offers',
     hero_btn_value: 'Shop Now!',
     hero_cart_icon: 'fa-shopping-cart',
-    hero_link: '../products.html'
+    hero_link: '../index.html'
 }];
 
 export const products = [{
