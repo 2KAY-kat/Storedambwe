@@ -1,4 +1,4 @@
-# ProjectF
+# STOREDAMBWE
 This project is an ecomerce rather a market place web app am working on using HTML, Javascript, css and will soon add php and othe tech as it grows.
 
 #### The Main Featues
