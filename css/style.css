@@ -255,37 +255,13 @@ header {
   display: flex;
   align-items: center;
   height: 80vh;
+  width: 100%;
   background-image: url('../images/bacola-banner-01.jpg');
   background-position: left center;
   background-size: cover; 
   background-repeat: no-repeat; 
   padding: 10px 20px
 }
-
-/*
-.hero {
-  display: flex;
-  align-items: center;
-  background: linear-gradient(
-    to bottom,
-    var(--main-color),
-    var(--accent-color)
-  )
-  url(../images/bacola-banner-01.jpg) no-repeat; 
-  height: 80vh;
-}
-*/
-
-/*.hero-image {
-  width: 40%;
-  margin-top: 25px;
-  padding: 6px;
-}
-.hero-image img {
-  width: 100%;
-  border-radius: 5px;
-}
-  */
 
 .hero-text {
   margin-top: 40px;
@@ -336,7 +312,7 @@ header {
 }
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 .product-card {
@@ -762,7 +738,9 @@ html::-webkit-scrollbar-thumb {
   border-radius: 8px;
   margin-top: 11px;
   margin-bottom: 15px;
-} /**********   checkout total / processing styles ***********/
+}
+
+/**********   checkout total / processing styles ***********/
 .place-order-button {
   cursor: pointer;
 }
@@ -813,7 +791,9 @@ select {
 }
 .link-primary:hover {
   color: var(--random-color);
-} /* Styles for dropdown selectors. */
+}
+
+/* Styles for dropdown selectors. */
 select {
   color: var(--text-color);
   background-color: var(--text-mix-color);
@@ -827,7 +807,9 @@ select {
 select:focus,
 input:focus {
   outline: 2px solid var(--main-color);
-} /****  checkout header styles ********/
+} 
+
+/****  checkout header styles ********/
 .checkout-header {
   height: 60px;
   padding-left: 30px;
@@ -860,7 +842,8 @@ input:focus {
 }
 .dambwe-mobile-logo {
   display: none;
-} /* @media is used to create responsive design (making the website look good on any screen size). This @media means when the screen width is 575px or less, different styles (inside the {...}) will be applied. */
+} 
+
 @media (max-width: 575px) {
   .checkout-header-left-section {
     width: auto;
@@ -874,6 +857,7 @@ input:focus {
     margin-top: 5px;
   }
 }
+
 .checkout-header-middle-section {
   flex: 1;
   flex-shrink: 0;
@@ -883,6 +867,7 @@ input:focus {
   display: flex;
   justify-content: center;
 }
+
 .return-to-home-link {
   color: var(--main-color);
   font-size: 23px;

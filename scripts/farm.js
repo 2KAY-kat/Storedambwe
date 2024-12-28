@@ -1,27 +1,11 @@
 import { cart, addToCart } from './cart.js';
-import { header, products, nav } from './products.js';
+import { header, hero, products, nav } from './products.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
 let headerHTML = '';
+let heroHTML = '';
 let productsHTML = '';
 let navHTML = '';
-
-/** *
-
-  
-       /**  <div class="header-logo">
-            <a class="logoTitle" href="index.html">${header.name}</a>
-        </div>
-      
-    <div class="header-mid">
-        Online Mall
-      </div>
-
-        <div class="header-right">
-            <a class="header-fa" href="checkout.html"> <i class="fa fa-shopping-cart cart-plus"></i>
-            <div class="cart-quantity js-cart-quantity cart-plus"></div> </a>
-        </div>
-        </div>**/
 
 
 header.forEach((header) => {
@@ -43,6 +27,20 @@ headerHTML += `
 
 
 document.querySelector('.navbar').innerHTML = headerHTML;
+
+hero.forEach((hero) => {
+    heroHTML += `
+    
+    <div class="hero-text">
+            <h1>${hero.hero_text_h1}</h1>
+            <p>${hero.hero_text_p}</p>
+            <a href="${hero.hero_link}"><button class="btn2">${hero.hero_btn_value}<i class="fa  ${hero.hero_cart_icon}"></i> &rarr;</a></button></a>
+        </div>
+    `;
+    
+})
+
+document.querySelector('.hero').innerHTML = heroHTML;
 
 products.forEach((product) => {
     productsHTML += `
@@ -79,6 +77,7 @@ document.querySelector('nav').innerHTML = navHTML;
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+
 function updateCartQuantity() {
     let cartQuantity = 0;
 
@@ -112,47 +111,3 @@ backToTop.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-/*
-let startY = 0;
-let isPulling = false;
-
-// Capture the initial touch position when the user touches the screen
-document.addEventListener('touchstart', function(e) {
-  startY = e.touches[0].clientY;  // Store the starting Y position of the touch
-}, {passive: true});
-
-// Detect when the user is pulling down on the screen
-document.addEventListener('touchmove', function(e) {
-  const currentY = e.touches[0].clientY;
-
-  // If the user is pulling down and the page is scrolled to the top, start the pull-to-refresh action
-  if (currentY > startY && window.scrollY === 0) {
-    isPulling = true;
-    document.getElementById('refresh-indicator').style.display = 'block';  // Show refresh indicator
-  }
-}, {passive: true});
-
-// Handle when the user lifts their finger off the screen
-document.addEventListener('touchend', function() {
-  if (isPulling) {
-    // Simulate an AJAX request to fetch new data and refresh the content
-    fetch('/path/to/data')  // Replace this URL with the actual path to your data
-      .then(response => response.text())  // Get the response as plain text (HTML, for example)
-      .then(data => {
-        // Update the content on the page with the fetched data
-        document.getElementById('content').innerHTML = data;
-
-        // Hide the refresh indicator once the content is updated
-        document.getElementById('refresh-indicator').style.display = 'none';
-      })
-      .catch(error => {
-        console.error('Error fetching new data:', error);
-        // Hide the refresh indicator even if there's an error
-        document.getElementById('refresh-indicator').style.display = 'none';
-      });
-
-    // Reset the pulling flag
-    isPulling = false;
-  }
-});
-*/

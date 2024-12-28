@@ -16,6 +16,14 @@ export const header = [{
     link: 'checkout.html'
 }];
 
+export const hero = [{
+    hero_text_h1: 'Welcome to Your Farming Store',
+    hero_text_p: 'Discover our latest prodcts and offers',
+    hero_btn_value: 'Shop Now!',
+    hero_cart_icon: 'fa-shopping-cart',
+    hero_link: '../index.html'
+}];
+
 export const products = [{
     id: '2024-0106-2022',
     image: 'images/19-346x310.webp',
