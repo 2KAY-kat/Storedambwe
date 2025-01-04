@@ -9,6 +9,82 @@
 </head>
 
 <body>
+  <div class="navbar">
+        
+  </div>
+
+  <div class="hero hero2">
+
+
+  </div>
+
+    <div class="product-details" id="productDetails"></div>
+
+
+    <script type="module" src="scripts/farm.js"></script>
+    <script type="module">
+      import { products } from './scripts/products.js';
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      const product = products.find(p => p.id === productId);
+
+      if (product) {
+        const productDetails = document.getElementById('productDetails');
+        productDetails.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h1>${product.name}</h1>
+          <p>${product.description}</p>
+          <p>MK${product.dollar}</p>
+        `;
+      } else {
+        document.getElementById('productDetails').innerText = 'Product not found!';
+      }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
    <div class="hero">
     
     </div>
@@ -41,7 +117,7 @@
 
 </body>
 
-</html>
+</html>-->
 <!--
 <!DOCTYPE html>
 <html lang="en">

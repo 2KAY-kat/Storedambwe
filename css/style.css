@@ -189,6 +189,16 @@ body {
   padding: 10px 20px
 }
 
+.hero2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-image: url('../images/banner-hero.png');
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+}
+
 .hero-text {
   margin-top: 40px;
   width: 60%;

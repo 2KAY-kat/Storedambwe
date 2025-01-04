@@ -28,6 +28,7 @@ headerHTML += `
 
 document.querySelector('.navbar').innerHTML = headerHTML;
 
+
 hero.forEach((hero) => {
     heroHTML += `
     
@@ -41,6 +42,7 @@ hero.forEach((hero) => {
 })
 
 document.querySelector('.hero').innerHTML = heroHTML;
+
 
 products.forEach((product) => {
     productsHTML += `
