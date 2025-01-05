@@ -17,8 +17,8 @@ export const header = [{
 }];
 
 export const hero = [{
-    hero_text_h1: 'Welcome to Your Farming Store',
-    hero_text_p: 'Discover our latest prodcts and offers',
+    hero_text_h1: 'Welcome To Your Online Marketplace',
+    hero_text_p: 'Buy and Sell Groceries Online',
     hero_btn_value: 'Shop Now!',
     hero_cart_icon: 'fa-shopping-cart',
     hero_link: '../index.html'

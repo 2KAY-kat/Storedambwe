@@ -25,7 +25,6 @@ body {
   color: var(--text-color);
 }
 
-
 /**********************************
 ***********************************
       Start  Temporary Header
@@ -191,8 +190,9 @@ body {
 
 .hero-text {
   margin-top: 40px;
-  width: 60%;
+  width: 80%;
   padding: 20px;
+  font-size: 38px;
 }
 .hero-text h1 {
   font-size: 48px;
