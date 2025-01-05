@@ -46,13 +46,13 @@ body {
   height: 60px;
 }
 
-.nav-logo {
+a .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.nav-logo p {
+a .nav-logo p {
   color: var(--main-color);
   font-size: 20px;
   text-transform: capitalize;
@@ -223,8 +223,9 @@ body {
   color: var(--text-mix-color);
 }
 
-.hero .btn2:hover {
+.hero .a:hover {
   background-color: var(--main-color);
+  color: var(--text-mix-color);
   border: solid 1px var(--random-color);
 }
 .products {
