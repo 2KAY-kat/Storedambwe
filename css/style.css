@@ -25,7 +25,6 @@ body {
   color: var(--text-color);
 }
 
-
 /**********************************
 ***********************************
       Start  Temporary Header
@@ -47,13 +46,13 @@ body {
   height: 60px;
 }
 
-.nav-logo {
+a .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.nav-logo p {
+a .nav-logo p {
   color: var(--main-color);
   font-size: 20px;
   text-transform: capitalize;
@@ -201,8 +200,9 @@ body {
 
 .hero-text {
   margin-top: 40px;
-  width: 60%;
+  width: 80%;
   padding: 20px;
+  font-size: 38px;
 }
 .hero-text h1 {
   font-size: 48px;
@@ -233,8 +233,9 @@ body {
   color: var(--text-mix-color);
 }
 
-.hero .btn2:hover {
+.hero .a:hover {
   background-color: var(--main-color);
+  color: var(--text-mix-color);
   border: solid 1px var(--random-color);
 }
 .products {
