@@ -1,7 +1,7 @@
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if(!cart) {
-    cart = [{
+    cart = [/*{
         productId: '2024-0106-2022',
         quantity: 2,
         deliveryOptionId:'1'
@@ -9,7 +9,7 @@ if(!cart) {
         productId: '2024-0106-2023',
         quantity: 1,
         deliveryOptionId: '2'
-    }];
+    }*/];
 }
 
 function saveToStorage() {
@@ -66,4 +66,19 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
 
     saveToStorage();
 
+}
+
+
+export function updateQuantity(productId, newQuantity) {
+    let matchingItem;
+  
+    cart.forEach((cartItem) => {
+      if (productId === cartItem.productId) {
+        matchingItem = cartItem;
+      }
+    });
+  
+    matchingItem.quantity = newQuantity;
+  
+    saveToStorage();
 }
