@@ -843,3 +843,116 @@ input:focus {
   width: 100%;
   z-index: 1000;
 }
+
+
+body.details-page {
+  margin: 0;
+  padding: 0;
+}
+
+.product-details {
+  padding: 10px;
+  display: block;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--border-color);
+  margin-top: 40px;
+  height: 100vh;
+}
+
+.product-details h1 {
+  color: var(--text-color);
+  margin-bottom: 12px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.view-details-price.product-price {
+  margin-top: 10px;
+  font-size: 25px;
+  /*border-left: var(--price-color) solid 20px; trial experimental shit */
+}
+
+.description {
+  color: var(--nav-background);
+  text-align: left;
+  width: 60%;
+}
+
+.p-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.product-details .product-image-details {
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quick-nav {
+  height: 40px;
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 1px 3px -2px black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.quick-nav ul {
+ /* border: 2px solid var(--price-color); was for design purpose nothing fancy */
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.quick-nav ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.quick-nav ul li a {
+ text-decoration: none;
+ color: var(--text-color);
+ font-weight: 700;
+}
+
+.quick-nav ul li a:hover {
+  color: var(--link-hover);
+}
+
+.fa-syle {
+  color: var(--nav-background);
+}
+
+.fa-syle:hover {
+  color: var(--border-color);
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  padding: 4px;
+}
+
+.icon-circle i {
+  color: var(--text-color);
+}
+
+.icon-circle i:hover {
+  color: #0056b3;
+}

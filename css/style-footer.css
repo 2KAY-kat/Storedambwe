@@ -81,3 +81,8 @@ and (max-width: 4250px) {
         padding: 20px 0;
     }
 }
+
+.footer-cm.details {
+    bottom: 0;
+    margin-bottom: 0;
+}

@@ -8,122 +8,184 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <div class="navbar">
-        
+<body class="details-page">
+
+
+  <div class="quick-nav">
+  <ul>
+    <li>
+      <a href="javascript:void(0)" onclick="history.back()">
+        <i class="fa fa-arrow-left" style="font-size: 1.5rem; color: #6e6e6e;"></i>
+    </a>
+    </li>
+    <li>
+      <a href="index.html">
+        <i class="fa fa-home
+        "></i>
+      </a>
+    </li>
+    <li>
+      <a>
+        <i class="fa-syle fa fa-bookmark"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa-syle fa fa-comment-dots"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa-syle fas fa-share-alt"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <div class="icon-circle">
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
+      </a>
+    </li>
+  </ul>
   </div>
 
-    <div class="product-details" id="productDetails"></div>
+  <div class="product-details" id="productDetails">
 
+  </div>
+  
+  <script type="module" src="scripts/farm.js"></script>
+  <script type="module">
+    import { products } from './scripts/products.js';
 
-    <script type="module" src="scripts/farm.js"></script>
-    <script type="module">
-      import { products } from './scripts/products.js';
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    const product = products.find(p => p.id === productId);
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('id');
-      const product = products.find(p => p.id === productId);
+    if (product) {
+      const productDetails = document.getElementById('productDetails');
+      productDetails.innerHTML = `
+            <img class="product-image-details" src="${product.image}" alt="${product.name}">
+            <h1>${product.name}</h1>
+            <div class="p-desc">
+            <p class="description">${product.description}</p>
+              </div>
+            <p class="view-details-price product-price">MK${product.dollar}</p>
+          
+          `;
+    } else {
+      document.getElementById('productDetails').innerText = 'Product not found!';
+    }
+  </script>
+  
 
-      if (product) {
-        const productDetails = document.getElementById('productDetails');
-        productDetails.innerHTML = `
-          <img src="${product.image}" alt="${product.name}">
-          <h1>${product.name}</h1>
-          <p>${product.description}</p>
-          <p>MK${product.dollar}</p>
-        `;
-      } else {
-        document.getElementById('productDetails').innerText = 'Product not found!';
-      }
-    </script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<footer class="footer-cm details">
+<div class="bottom">
+      <!--  <a href="#">
+            <i class="fab fa-facebook"></i>
+        </a>
+    -->
+        <a href="https://x.com/Katoyakelvin?t=8sX_LRFzKpo5S3XnjM1gRg&s=09">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+      <!--  <a href="#">
+            <i class="fab fa-instagram"></i>
+        </a> -->
+        <a href="https://www.linkedin.com/in/kelvin-katoya-570537310?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+            <i class="fab fa-linkedin"></i>
+        </a>
+     <!--   <a href="#">
+            <i class="fab fa-youtube"></i>
+        </a> -->
+    <p>&copy; Storedambwe. All rights reserved</p>
+</div>
+</footer>
+  </body>
+  </html>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--<!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Product | Details</title>
+      <link rel="stylesheet" href="css/style.css">
+  </head>
+  
+  <body>
+     <div class="hero">
+      
+      </div>
+  
+  
+      <div class="product-details" id="productDetails"></div>
+  
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+        const product = products.find(p => p.id === productId);
+    
+        if (product) {
+          const productDetails = document.getElementById('productDetails');
+          productDetails.innerHTML = `
+            <img src="${products.image}" alt="${products.name}">
+            <h1>${products.name}</h1>
+            <p>${products.description}</p>
+            <p>$${products.dollar}</p>
+          `;
+        } else {
+          document.getElementById('productDetails').innerText = 'Product not found!';
+        }
+      </script>
+  
+  
+  <script src="scripts/categories.js"></script>
+          <script type="module" src="scripts/farm.js"></script>
+          <script src="scripts/footer.js"></script>
+  
+  </body>
+  
+  </html>
+  <!--
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product | Details</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-   <div class="hero">
-    
-    </div>
-
-
-    <div class="product-details" id="productDetails"></div>
-
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = parseInt(urlParams.get('id'));
-      const product = products.find(p => p.id === productId);
-  
-      if (product) {
-        const productDetails = document.getElementById('productDetails');
-        productDetails.innerHTML = `
-          <img src="${products.image}" alt="${products.name}">
-          <h1>${products.name}</h1>
-          <p>${products.description}</p>
-          <p>$${products.dollar}</p>
-        `;
-      } else {
-        document.getElementById('productDetails').innerText = 'Product not found!';
-      }
-    </script>
-
-
-<script src="scripts/categories.js"></script>
-        <script type="module" src="scripts/farm.js"></script>
-        <script src="scripts/footer.js"></script>
-
-</body>
-
-</html>
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Product Details</title>
-</head>
-<body>
- 
-</body>
-</html>
--->
+    <link rel="stylesheet" href="styles.css">
+    <title>Product Details</title>
+  </head>
+  <body>
+   
+  </body>
+  </html>
+  -->
