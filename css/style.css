@@ -843,8 +843,6 @@ input:focus {
   width: 100%;
   z-index: 1000;
 }
-<<<<<<< HEAD
-
 
 body.details-page {
   margin: 0;
@@ -979,5 +977,3 @@ body.details-page {
   visibility: visible;
   opacity: 1;
 }
-=======
->>>>>>> ff37f09feedeb74e770f190bb48a1080f132e5a3
