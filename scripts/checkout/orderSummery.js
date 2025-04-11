@@ -117,7 +117,6 @@ export function renderOrderSummary() {
 
     document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
-
     document.querySelectorAll('.js-update-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
@@ -156,7 +155,7 @@ export function renderOrderSummary() {
       );
       quantityLabel.innerHTML = newQuantity;
 
-      updateCartQuantity();
+      updateQuantity();
     });
   });
 

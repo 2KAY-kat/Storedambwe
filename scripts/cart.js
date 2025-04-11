@@ -1,7 +1,8 @@
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if(!cart) {
-    cart = [/*{
+    cart = [
+        /*{
         productId: '2024-0106-2022',
         quantity: 2,
         deliveryOptionId:'1'
@@ -9,7 +10,8 @@ if(!cart) {
         productId: '2024-0106-2023',
         quantity: 1,
         deliveryOptionId: '2'
-    }*/];
+    }
+        ***/];
 }
 
 function saveToStorage() {

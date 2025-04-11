@@ -12,8 +12,8 @@ header.forEach((header) => {
 headerHTML += `
 
         <div class="nav-logo">
-            <a href="index.html"><img class="logo-navlogo-nav" src="${header.image}" alt="" /></a>
-            <a href="index.html"><p class="dambwe">${header.name}</p></a>
+            <img class="logo-navlogo-nav" src="${header.image}" alt="" />
+            <p class="dambwe">${header.name}</p>
         </div>
         <ul class="nav-menu">
             <p>Marketplace</p>
