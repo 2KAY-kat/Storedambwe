@@ -35,7 +35,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a id="shareBtn">
         <i class="fa-syle fas fa-share-alt"></i>
       </a>
     </li>
@@ -48,6 +48,9 @@
     </li>
   </ul>
   </div>
+<div id="toast" class="toast">
+  Shared successfully
+</div>
 
   <div class="product-details" id="productDetails">
 
@@ -75,6 +78,35 @@
     } else {
       document.getElementById('productDetails').innerText = 'Product not found!';
     }
+
+    //share context default menu
+    const shareBtn = document.getElementById('shareBtn');
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+    
+    shareBtn.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Yoh! Check this out',
+            text: 'You might wanna chech it out, I thought you would love it.',
+            url: window.location.href
+          });
+          showToast('You shared this product');
+        } catch (err) {
+          showToast ('sharing was cancelled');
+        }
+      } else {
+        showToast ('Your brouser does not support sharing')
+      }
+    });
   </script>
   
 
