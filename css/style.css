@@ -1010,9 +1010,6 @@ body.details-page {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
