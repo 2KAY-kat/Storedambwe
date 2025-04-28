@@ -2,6 +2,16 @@ import { cart, addToCart } from './cart.js';
 import { header, hero, products, nav } from './products.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
 let headerHTML = '';
 let heroHTML = '';
 let productsHTML = '';
@@ -104,6 +114,10 @@ document.querySelectorAll('.js-add-to-cart')
             const productId = button.dataset.productId;
             addToCart(productId);
             updateCartQuantity();
+            
+            // Find the product name
+            const product = products.find(p => p.id === productId);
+            showToast(`${product.name} added to cart`);
         });
     });
 

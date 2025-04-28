@@ -1,3 +1,19 @@
+// Import products to get product name
+import { products } from './products.js';
+
+// Add showToast function at the top
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (toast) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+}
+
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if(!cart) {
@@ -14,7 +30,7 @@ if(!cart) {
         ***/];
 }
 
-export function saveToStorage() {
+function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -41,6 +57,10 @@ export function addToCart(productId) {
 }
 
 export function removeFromCart(productId) {
+    // Find the product before removing it to get its name
+    const productToRemove = cart.find(item => item.productId === productId);
+    const product = products.find(p => p.id === productId);
+
     const newCart = [];
 
     cart.forEach((cartItem) => {
@@ -50,8 +70,12 @@ export function removeFromCart(productId) {
     });
 
     cart = newCart;
-
     saveToStorage();
+
+    // Show toast notification after removing item
+    if (product) {
+        showToast(`${product.name} removed from cart`);
+    }
 }
 
 export function updateDeliveryOption(productId, deliveryOptionId) {

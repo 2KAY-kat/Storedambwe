@@ -955,30 +955,29 @@ body.details-page {
   color: #0056b3;
 }
 
+/* Toast notification styles */
 .toast {
-  visibility: hidden;
-  min-width: 200px;
-  background-color: var(--accent-color);
-  color: var(--text-mix-color);
-  text-align: center;
-  border-radius: 8px;
-  padding: 12px;
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--main-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
 .toast.show {
-  visibility: visible;
-  opacity: 1;
+    opacity: 1;
+    visibility: visible;
 }
 
 .details-page {
-    background: #f5f5f5;
+    background: var(--nav-background);
     min-height: 100vh;
 }
 
@@ -987,7 +986,7 @@ body.details-page {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--main-color);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -1082,10 +1081,10 @@ body.details-page {
 .view-details-price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2ecc71;
+    color: var(--price-color);
     margin: 1rem 0;
 }
-
+/*
 .toast {
     position: fixed;
     bottom: 20px;
@@ -1102,7 +1101,7 @@ body.details-page {
 .toast.show {
     opacity: 1;
 }
-
+*/
 /* Responsive Design */
 @media (max-width: 768px) {
     .product-image-details {
