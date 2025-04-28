@@ -80,6 +80,11 @@ document.querySelector('nav').innerHTML = navHTML;
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartQuantity();
+});
+
+
 function updateCartQuantity() {
     let cartQuantity = 0;
 
@@ -87,7 +92,10 @@ function updateCartQuantity() {
         cartQuantity += cartItem.quantity;
     });
 
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    const cartCountElement = document.querySelector('.js-cart-quantity');
+    if (cartCountElement) {
+        cartCountElement.innerHTML = cartQuantity;
+    }
 }
 
 document.querySelectorAll('.js-add-to-cart')
