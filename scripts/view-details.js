@@ -13,8 +13,8 @@ const product = products.find(p => p.id === productId);
 if (product) {
     const productDetails = document.getElementById('productDetails');
     productDetails.innerHTML = `
-        <div class="product-container">
-            <img src="${product.image}" alt="${product.name}" class="product-image-details">
+        <div class="product-container"> 
+        <img src="${product.image}" alt="${product.name}" class="product-image-details">
             <div class="product-info">
                 <h1>${product.name}</h1>
                 <p class="view-details-price">MK${formatCurrency(product.dollar)}</p>

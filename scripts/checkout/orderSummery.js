@@ -8,8 +8,8 @@ import { renderPaymentSummary } from './paymentsummary.js';
 
 
 export function renderOrderSummary() {
-    console.log('Cart:', cart); // Debug cart contents
-    console.log('Delivery Options:', deliveryOptions); // Debug delivery options
+    console.log('Cart:', cart); 
+    console.log('Delivery Options:', deliveryOptions); 
 
     let cartSummaryHTML = '';
 
@@ -25,8 +25,8 @@ export function renderOrderSummary() {
 
 
     const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryHours, 'hour');  // Changed from deliveryDays to deliveryHours
-    const dateString = deliveryDate.format('dddd, MMMM D [at] h:mm A');    // Added time to the format
+    const deliveryDate = today.add(deliveryOption.deliveryHours, 'hour');  
+    const dateString = deliveryDate.format('dddd, MMMM D [at] h:mm A');    
 
     cartSummaryHTML += `
         <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
