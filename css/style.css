@@ -1,8 +1,10 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css);
 @import url(style-footer.css);
+@import url(./../auth/css/auth-styles.css);
 :root {
   --accent-color: #007bff;
   --border-color: #555;
+  --input-icon-color: #4e4e4e;
   --main-color: #0056b3;
   --text-color: #333;
   --nav-background: #6e6e6e;
@@ -845,6 +847,11 @@ input:focus {
 }
 
 body.details-page {
+  margin: 0;
+  padding: 0;
+}
+
+body.login-page {
   margin: 0;
   padding: 0;
 }
