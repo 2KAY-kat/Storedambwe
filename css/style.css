@@ -716,7 +716,7 @@ input:focus {
   height: 60px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: var(--text-mix-color);
+  background-color: var(--nav-background);
   display: flex;
   justify-content: center;
   position: fixed;
@@ -739,7 +739,7 @@ input:focus {
   cursor: pointer;
 }
 .dambwe-logo {
-  width: 100px;
+  width: 50px;
   margin-top: 12px;
 }
 .dambwe-mobile-logo {
@@ -1168,6 +1168,7 @@ a {
 }
 
 */
+
 
 @media (max-width: 768px) {
     .product-container {

@@ -8,6 +8,8 @@ import { renderPaymentSummary } from './paymentsummary.js';
 
 
 export function renderOrderSummary() {
+    console.log('Cart:', cart); // Debug cart contents
+    console.log('Delivery Options:', deliveryOptions); // Debug delivery options
 
     let cartSummaryHTML = '';
 
@@ -23,9 +25,8 @@ export function renderOrderSummary() {
 
 
     const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-
-    const dateString = deliveryDate.format('dddd, MMMM, D');
+    const deliveryDate = today.add(deliveryOption.deliveryHours, 'hour');  // Changed from deliveryDays to deliveryHours
+    const dateString = deliveryDate.format('dddd, MMMM D [at] h:mm A');    // Added time to the format
 
     cartSummaryHTML += `
         <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -75,15 +76,19 @@ export function renderOrderSummary() {
     });
 
     function deliveryOptionsHTML(matchingProduct, cartItem) {
-
     let html = '';
 
     deliveryOptions.forEach((deliveryOption) => {
         const today = dayjs();
-        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+        const deliveryDate = today.add(deliveryOption.deliveryHours, 'hour');
 
-        const dateString = deliveryDate.format('dddd, MMMM, D');
+        // Format the date and time
+        const dateString = deliveryDate.format('dddd, MMMM D [at] h:mm A');
 
+        // Calculate estimated time in hours
+        const hoursText = deliveryOption.deliveryHours === 1 
+            ? '1 hour' 
+            : `${deliveryOption.deliveryHours} hours`;
 
         const priceString = deliveryOption.dollar === 0
             ? 'FREE'
@@ -91,31 +96,40 @@ export function renderOrderSummary() {
 
         const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
-
         html += `
-        
-    <div class="delivery-option js-delivery-option" data-product-id="${matchingProduct.id}" data-delivery-option-id="${deliveryOption.id}">
-
-    <input type="radio" ${isChecked ? 'checked' : ''} class="delivery-option-input" name="delivery-option-${matchingProduct.id}">
-    <div>
-    <div class="delivery-option-date">
-        ${dateString}
-    </div>
-    <div class="delivery-option-price">
-        ${priceString} Shipping
-    </div>
-    </div>
-    </div>
-        
-        `
+        <div class="delivery-option js-delivery-option" 
+            data-product-id="${matchingProduct.id}" 
+            data-delivery-option-id="${deliveryOption.id}">
+            <input type="radio" ${isChecked ? 'checked ' : ''} 
+                class="delivery-option-input" 
+                name="delivery-option-${matchingProduct.id}">
+            <div>
+                <div class="delivery-option-date">
+                    ${dateString}
+                </div>
+                <div class="delivery-option-time">
+                    Estimated delivery: ${hoursText}
+                </div>
+                <div class="delivery-option-price">
+                    ${priceString} Shipping
+                </div>
+            </div>
+        </div>
+        `;
     });
 
     return html;
+}
+
+
+
+    const element = document.querySelector('.js-order-summary');
+    console.log('Order summary element:', element); // Debug element existence
+    if (element) {
+        element.innerHTML = cartSummaryHTML;
+    } else {
+        console.error('Order summary element not found!');
     }
-
-
-
-    document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
     document.querySelectorAll('.js-update-link')
   .forEach((link) => {
