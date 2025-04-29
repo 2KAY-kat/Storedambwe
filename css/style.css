@@ -1,5 +1,6 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css);
 @import url(style-footer.css);
+@import url(./../auth/css/auth-styles.css);
 :root {
   --accent-color: #007bff;
   --border-color: #555;
