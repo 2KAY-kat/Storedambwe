@@ -4,6 +4,7 @@
 :root {
   --accent-color: #007bff;
   --border-color: #555;
+  --input-icon-color: #4e4e4e;
   --main-color: #0056b3;
   --text-color: #333;
   --nav-background: #6e6e6e;
@@ -846,6 +847,11 @@ input:focus {
 }
 
 body.details-page {
+  margin: 0;
+  padding: 0;
+}
+
+body.login-page {
   margin: 0;
   padding: 0;
 }
