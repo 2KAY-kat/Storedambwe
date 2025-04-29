@@ -1,129 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product | Details</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Add this for smoother animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
-<body>
-  <div class="navbar">
-        
-  </div>
-
-    <div class="product-details" id="productDetails"></div>
-
-
-    <script type="module" src="scripts/farm.js"></script>
-    <script type="module">
-      import { products } from './scripts/products.js';
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('id');
-      const product = products.find(p => p.id === productId);
-
-      if (product) {
-        const productDetails = document.getElementById('productDetails');
-        productDetails.innerHTML = `
-          <img src="${product.image}" alt="${product.name}">
-          <h1>${product.name}</h1>
-          <p>${product.description}</p>
-          <p>MK${product.dollar}</p>
-        `;
-      } else {
-        document.getElementById('productDetails').innerText = 'Product not found!';
-      }
-    </script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product | Details</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-   <div class="hero">
-    
+<body class="details-page">
+    <div class="quick-nav animate__animated animate__fadeInDown">
+        <ul>
+            <li>
+                <a href="javascript:void(0)" onclick="history.back()" class="nav-icon">
+                    <i class="fa fa-arrow-left"></i>
+                    <span class="tooltip">Back</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html" class="nav-icon">
+                    <i class="fa fa-home"></i>
+                    <span class="tooltip">Home</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-icon" id="bookmarkBtn">
+                    <i class="fa fa-bookmark"></i>
+                    <span class="tooltip">Save</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-icon">
+                    <i class="fa fa-comment"></i>
+                    <span class="tooltip">Comment</span>
+                </a>
+            </li>
+            <li>
+                <a id="shareBtn" class="nav-icon">
+                    <i class="fas fa-share-alt"></i>
+                    <span class="tooltip">Share</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-icon">
+                    <i class="fa fa-ellipsis-h"></i>
+                    <span class="tooltip">More</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
+    <div id="toast" class="toast"></div>
 
-    <div class="product-details" id="productDetails"></div>
+    <div class="product-details animate__animated animate__fadeIn" id="productDetails">
+        <!-- Content will be dynamically inserted here -->
+    </div>
 
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = parseInt(urlParams.get('id'));
-      const product = products.find(p => p.id === productId);
-  
-      if (product) {
-        const productDetails = document.getElementById('productDetails');
-        productDetails.innerHTML = `
-          <img src="${products.image}" alt="${products.name}">
-          <h1>${products.name}</h1>
-          <p>${products.description}</p>
-          <p>$${products.dollar}</p>
-        `;
-      } else {
-        document.getElementById('productDetails').innerText = 'Product not found!';
-      }
-    </script>
-
-
-<script src="scripts/categories.js"></script>
-        <script type="module" src="scripts/farm.js"></script>
-        <script src="scripts/footer.js"></script>
-
-</body>
-
-</html>
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Product Details</title>
-</head>
-<body>
- 
+    <script type="module" src="scripts/view-details.js"></script>
 </body>
 </html>
--->

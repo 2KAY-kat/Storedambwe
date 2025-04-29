@@ -1,6 +1,6 @@
 import { cart } from '../cart.js';
-import { getProduct, products } from '../products.js';
-import { deliveryOptions, getDeliveryOption } from '../deliveryOptions.js';
+import {  getProduct } from '../products.js';
+import {  getDeliveryOption } from '../deliveryOptions.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 
 
