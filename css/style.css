@@ -891,6 +891,8 @@ body.details-page {
   margin-left: auto;
   margin-right: auto;
 }
+
+/*
 .quick-nav {
     height: 40px;
     background-color: var(--accent-color);
@@ -943,18 +945,13 @@ body.details-page {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: var(--border-color);
   padding: 4px;
 }
 
 .icon-circle i {
   color: var(--text-color);
 }
-
-.icon-circle i:hover {
-  color: #0056b3;
-}
-
+*/
 /* Toast notification styles */
 .toast {
     position: fixed;
@@ -981,12 +978,16 @@ body.details-page {
     min-height: 100vh;
 }
 
+a {
+    text-decoration: none;
+}
+
 .quick-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: var(--main-color);
+    background: var(--nav-background);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -1015,12 +1016,18 @@ body.details-page {
 
 .nav-icon:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .nav-icon i {
     font-size: 1.2rem;
-    color: #333;
+    color: var(--accent-color);
+}
+
+#bookmarkBtn i {
+    color: var(--main-color);
+}
+#bookmarkBtn.active i {
+    color: var(--accent-color);
 }
 
 .tooltip {
@@ -1081,6 +1088,18 @@ body.details-page {
     color: var(--price-color);
     margin: 1rem 0;
 }
+
+/* Add these styles near your other nav-icon styles */
+.nav-icon .fa-bookmark-o {
+  color: var(--accent-color); /* Blue color when active */
+  transition: color 0.3s ease;
+}
+
+.nav-icon .fa-bookmark-o {
+  color: var(--main-color); /* Black color when inactive */
+  transition: color 0.3s ease;
+}
+
 /*
 .toast {
     position: fixed;

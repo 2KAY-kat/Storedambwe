@@ -63,12 +63,16 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
     }
 });
 
-// Handle Bookmark button
+// Update the bookmark button handler
 document.getElementById('bookmarkBtn').addEventListener('click', () => {
     const icon = document.querySelector('#bookmarkBtn i');
+    
+    // Toggle bookmark icons
     icon.classList.toggle('fa-bookmark');
     icon.classList.toggle('fa-bookmark-o');
-    showToast(icon.classList.contains('fa-bookmark') ? 
+    
+    // Show appropriate toast message
+    showToast(icon.classList.contains('fa-bookmark-o') ? 
         'Product saved to bookmarks' : 
         'Product removed from bookmarks');
 });
