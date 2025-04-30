@@ -1,5 +1,5 @@
 // Import products to get product name
-import { products } from './products.js';
+import { products } from './data.js';
 
 // Add showToast function at the top
 function showToast(message) {

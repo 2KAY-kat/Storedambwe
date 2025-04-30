@@ -1,5 +1,5 @@
 import { cart, addToCart } from './cart.js';
-import { header, hero, products, nav } from './products.js';
+import { header, hero, products, nav } from './data.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
 function showToast(message) {
