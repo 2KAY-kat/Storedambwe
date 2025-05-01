@@ -1,4 +1,4 @@
-import { products } from './products.js';
+import { products } from './data.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 import { cart, addToCart } from './cart.js';
 
