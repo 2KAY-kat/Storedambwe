@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product | Details</title>
+    <title>Store Dambwe | Product Details</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <!-- Add this for smoother animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
@@ -15,25 +14,25 @@
         <ul>
             <li>
                 <a href="javascript:void(0)" onclick="history.back()" class="nav-icon">
-                    <i class="fa fa-arrow-left"></i>
+                    <i class="fas fa-arrow-left"></i>
                     <span class="tooltip">Back</span>
                 </a>
             </li>
             <li>
                 <a href="index.html" class="nav-icon">
-                    <i class="fa fa-home"></i>
+                    <i class="fas fa-home"></i>
                     <span class="tooltip">Home</span>
                 </a>
             </li>
             <li>
                 <a class="nav-icon" id="bookmarkBtn">
-                    <i class="fa fa-bookmark"></i>
+                    <i class="far fa-bookmark"></i>
                     <span class="tooltip">Save</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-icon">
-                    <i class="fa fa-comment"></i>
+                    <i class="far fa-comment"></i>
                     <span class="tooltip">Comment</span>
                 </a>
             </li>
@@ -44,24 +43,23 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-icon">
-                    <i class="fa fa-ellipsis-h"></i>
-                    <span class="tooltip">More</span>
+                <a href="checkout.html" class="nav-icon">
+                   <i class="fas fa-shopping-cart"></i>
+                    <span class="tooltip">Cart</span>
                 </a>
             </li>
-
-            <div class="checkout-header-right-section">
+            <li>
                 <div class="user-profile">
-                  <img src="images/pear.jpg" alt="" />
-              </div>
+                    <img src="images/pear.jpg" alt="User Profile" />
+                </div>
+            </li>
         </ul>
-        
     </div>
 
     <div id="toast" class="toast"></div>
 
     <div class="product-details animate__animated animate__fadeIn" id="productDetails">
-       
+        <!-- Content will be loaded dynamically -->
     </div>
 
     <script type="module" src="scripts/view-details.js"></script>

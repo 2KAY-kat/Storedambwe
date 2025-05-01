@@ -862,6 +862,7 @@ input:focus {
 }
 .nav-icon {
   font-size: 18px;
+  text-decoration: none;
 }
 
 .refresh-indicator {
@@ -1011,12 +1012,9 @@ body.login-page {
 }
 
 .details-page {
-    background: var(--nav-background);
+    background: var(--text-mix-color);
     min-height: 100vh;
-}
-
-a {
-    text-decoration: none;
+    padding-top: 80px;
 }
 
 .quick-nav {
@@ -1025,19 +1023,19 @@ a {
     left: 0;
     right: 0;
     background: var(--nav-background);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 1rem;
-    margin-bottom: 30px;
 }
 
 .quick-nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .nav-icon {
@@ -1047,172 +1045,165 @@ a {
     justify-content: center;
     width: 40px;
     height: 40px;
-    transition: all 0.3s ease;
+    transition: var(--fades);
+    color: var(--text-mix-color);
 }
 
 .nav-icon:hover {
     transform: translateY(-2px);
+    color: var(--accent-color);
 }
 
 .nav-icon i {
     font-size: 1.2rem;
-    color: var(--accent-color);
-}
-
-#bookmarkBtn i {
-    color: var(--main-color);
-}
-#bookmarkBtn.active i {
-    color: var(--accent-color);
 }
 
 .tooltip {
     position: absolute;
-    bottom: -25px;
+    bottom: -30px;
     font-size: 0.75rem;
-    background: #333;
-    color: white;
+    background: var(--nav-background);
+    color: var(--text-mix-color);
     padding: 4px 8px;
     border-radius: 4px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: var(--fades);
     pointer-events: none;
+    white-space: nowrap;
 }
 
 .nav-icon:hover .tooltip {
     opacity: 1;
 }
 
-.product-details {
-    margin-top: 80px;
-    padding: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.product-image-details {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.product-details h1 {
-    margin: 1.5rem 0;
-    font-size: 2rem;
-    color: #333;
-}
-
-.p-desc {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin: 1rem 0;
-}
-
-.description {
-    line-height: 1.6;
-    color: #666;
-}
-
-.view-details-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--price-color);
-    margin: 1rem 0;
-}
-
-/* Add these styles near your other nav-icon styles */
-.nav-icon .fa-bookmark-o {
-  color: var(--accent-color); /* Blue color when active */
-  transition: color 0.3s ease;
-}
-
-.nav-icon .fa-bookmark-o {
-  color: var(--main-color); /* Black color when inactive */
-  transition: color 0.3s ease;
-}
-
-/*
-.toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.toast.show {
-    opacity: 1;
-}
-*/
-/* Responsive Design */
-@media (max-width: 768px) {
-    .product-image-details {
-        height: 300px;
-    }
-    
-    .quick-nav {
-        padding: 0.5rem;
-    }
-    
-    .nav-icon {
-        width: 35px;
-        height: 35px;
-    }
-}
-
 .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
     padding: 2rem;
-    background: var(--link-hover);
+    background: var(--text-mix-color);
     border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-details {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-info {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
-/*
-.btn1.js-add-to-cart {
-    margin-top: 1rem;
+
+.product-info h1 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.view-details-price {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--price-color);
+}
+
+.p-desc {
+    background: var(--link-hover);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.description {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.product-actions .btn1.js-add-to-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--accent-color);
+    color: var(--text-mix-color);
     padding: 1rem 2rem;
     border: none;
     border-radius: 8px;
-    background: #2ecc71;
-    color: white;
     font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    transition: var(--fades);
+    width: auto;
 }
 
 .btn1.js-add-to-cart:hover {
+    background: var(--main-color);
     transform: translateY(-2px);
-    background: #27ae60;
 }
 
-*/
+.btn1.js-add-to-cart i {
+    font-size: 1.2rem;
+}
 
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--main-color);
+    color: var(--text-mix-color);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+}
 
 @media (max-width: 768px) {
     .product-container {
         grid-template-columns: 1fr;
+        margin: 1rem;
+        padding: 1rem;
     }
 
     .product-image-details {
         max-height: 300px;
-        object-fit: contain;
+    }
+
+    .product-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .view-details-price {
+        font-size: 1.5rem;
+    }
+
+    .quick-nav {
+        padding: 0.75rem;
+    }
+
+    .quick-nav ul {
+        padding: 0 0.5rem;
+    }
+
+    .nav-icon {
+        width: 35px;
+        height: 35px;
     }
 }
