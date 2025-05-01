@@ -25,19 +25,28 @@
 
             <div class="input-group">
                 <i class="fa fa-envelope"></i>
-                <input type="text" placeholder="Email" required>
+                <input type="email" placeholder="Email" required>
             </div>
 
             <div class="input-group">
                 <i class="fas fa-lock-open"></i>
-                <input type="password" placeholder="Password" required>
+                <input type="password" id="password" class="password-input" placeholder="Password" required 
+                    oninput="checkPasswordMatch()">
+                <i class="fas fa-eye-slash toggle-password"></i>
             </div>
+            
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirm Password" required>
-                <!--
-                        <i class="fas fa-eye-slash toggle-password"></i> 
-                     -->
+                <input type="password" id="confirm-password" class="password-input password-mismatch-check" placeholder="Confirm Password" required 
+                    oninput="checkPasswordMatch()">
+                <i class="fas fa-eye-slash toggle-password"></i>
+                <i class="fas fa-check password-match-icon"></i>
+                <i class="fas fa-times password-mismatch-icon "></i>
+            </div>
+
+            <div class="password-strength">
+                <div class="strength-meter"></div>
+                <p class="strength-text"></p>
             </div>
 
             <button type="submit" class="login-btn">Sign up</button>
@@ -48,6 +57,8 @@
             </form>
         </div>
     </div>
+
+    <script src="js/auth.js"></script>
 </body>
 
 </html>
