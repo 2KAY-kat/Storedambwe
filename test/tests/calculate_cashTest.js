@@ -1,4 +1,4 @@
-import { formatCurrency } from '../scripts/utilities/calculate_cash.js';
+import { formatCurrency } from '../../scripts/utilities/calculate_cash.js';
 
 
 if (formatCurrency(1734) === '1734') {

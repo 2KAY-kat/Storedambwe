@@ -33,6 +33,23 @@
     line-height: 1.5;
 }
 
+.subtitle.reset{
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--text-mix-color);
+    background-color: var(--accent-color);
+    filter: brightness(1);
+    opacity: 0.5;
+    padding: 4px;
+    border-radius: 4px;
+}  
+
+.reset-click {
+    color: #154e2d;
+}
+
 .input-group {
     position: relative;
     margin-bottom: 1.5rem;
@@ -54,13 +71,11 @@
     color: var(--input-icon-color);
 }
 
-/*
-.toggle-password {
-    left: auto;
-    right: 100px;
+i.toggle-password {
+    left: auto; 
+    right: 10px; 
     cursor: pointer;
 }
-*/
 
 .options {
     display: flex;
@@ -94,4 +109,88 @@
 .forgot-password {
     color: var(--accent-color);
     text-decoration: none;
+}
+
+/* password strength ,meter stylrs  */
+
+
+.password-strength {
+    margin: 10px 0;
+}
+
+.strength-meter {
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+}
+
+.strength-meter::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s;
+    border-radius: 2px;
+}
+
+.strength-text {
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.weak::before { width: 33%; background: #7a1212;; }
+.medium::before { width: 66%; background: #eeca00; }
+.strong::before { width: 100%; background: #154e2d; }
+
+/* match password styles */
+
+#password-match-message {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+}
+
+i.password-match-icon {
+    color: green; 
+    display: none;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    left: auto; 
+    right: 40px; 
+    text-align: center;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+i.password-mismatch-icon {
+    color: rgb(122, 18, 18); 
+    display: none;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    left: auto; 
+    right: 40px; 
+    text-align: center;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+i.password-mismatch-check {
+    left: auto; 
+    right: 40px; 
+    position: absolute;
 }

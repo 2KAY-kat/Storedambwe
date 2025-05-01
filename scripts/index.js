@@ -1,5 +1,5 @@
 import { cart, addToCart } from './cart.js';
-import { header, hero, products, nav } from './products.js';
+import { header, hero, products, nav } from './data.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
 function showToast(message) {
@@ -32,7 +32,7 @@ headerHTML += `
             <a href="${header.link}"><i class="fa fa-shopping-cart"></i></a>
             <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>
             <div class="user-profile">
-                <img src="images/pear.jpg" alt="" />
+                <a href="dashboard/index.html"><img src="images/pear.jpg" alt="" /> </a>
             </div>
         </div>
     `;
