@@ -37,7 +37,7 @@ if (product) {
     addToCartBtn.addEventListener('click', () => {
         addToCartBtn.classList.add('animate__animated', 'animate__pulse');
         addToCart(productId);
-        showToast('Added to cart!');
+        showToast(`${product.name} Added to cart!`);
         
         // Remove animation classes after animation completes
         setTimeout(() => {

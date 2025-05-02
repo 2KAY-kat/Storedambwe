@@ -372,52 +372,77 @@ body {
 }
 .product-card h3 {
   margin-bottom: 10px;
-} /* home categories */
+} 
+
+/* home categories */
+
 .category {
   padding: 20px;
 }
+
+/*
 .category h2 {
   text-align: center;
   margin: 6px;
   padding: 6px;
   color: var(--main-color);
-}
+}*/
+
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(10, auto);
   gap: 20px;
+ /* width: auto; */
 }
-.category-card {
+
+a.category-card {
   border: 1px solid var(--random-color);
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px 5px;
+  width: auto;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s, opacity 0.2s;
-}
-.category-card:hover {
-  transform: translateY(-5px);
-  opacity: 0.8;
-}
-.category-card a {
   text-decoration: none;
   color: var(--text-color);
-  display: flex;
+  display: grid;
   flex-direction: column;
-  align-items: center;
 }
-.category-card a:hover {
-  color: var(--border-color);
+a.category-card:hover {
+  transform: translateY(-5px);
+  opacity: 0.8;
+  background-color: var(--accent-color);
+  color: var(--text-mix-color);
 }
+
+a.category-card h3:hover {
+  color: var(--text-mix-color);
+}
+
+/*
 .category-card h3 {
   color: var(--main-color);
   margin-top: 6px;
   padding: 6px;
 }
+*/
+h3.category-name {
+  color: #333;
+}
+/*
+.category-card h3 {
+  margin-bottom: 10px;
+}
+
+*/
+
 .view-category:hover {
   background-color: var(--text-mix-color);
   color: var(--border-color);
   border-color: var(--text-color);
 }
+
 .btn2 {
   width: 70%;
   background-color: var(--text-mix-color);
@@ -429,19 +454,21 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
 .btn2:hover {
   background-color: var(--main-color);
   color: var(--text-mix-color);
 }
+
 .category-card img {
   width: 100%;
-  height: 300px;
+  height: 100px;
   object-fit: cover;
   border-radius: 10px;
 }
-.category-card h3 {
-  margin-bottom: 10px;
-} /* end of home category */
+
+/* end of home category */
+
 #back-to-top {
   background-color: var(--accent-color);
   color: var(--random-color);
@@ -500,7 +527,7 @@ body {
   max-width: 1100px;
   padding-left: 30px;
   padding-right: 30px;
-  margin-top: 140px;
+  margin-top: 80px;
   margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
@@ -999,7 +1026,7 @@ body.login-page {
     background: var(--main-color);
     color: white;
     padding: 12px 24px;
-    border-radius: 50px;
+    border-radius: 5px;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -1128,20 +1155,23 @@ body.login-page {
 }
 
 .product-actions .btn1.js-add-to-cart {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: var(--accent-color);
-    color: var(--text-mix-color);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--fades);
-    width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  color: var(--text-mix-color);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--fades);
+  width: auto;
+  border: 2px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .btn1.js-add-to-cart:hover {
@@ -1152,7 +1182,7 @@ body.login-page {
 .btn1.js-add-to-cart i {
     font-size: 1.2rem;
 }
-
+/*
 .toast {
     position: fixed;
     bottom: 20px;
@@ -1161,7 +1191,7 @@ body.login-page {
     background: var(--main-color);
     color: var(--text-mix-color);
     padding: 1rem 2rem;
-    border-radius: 50px;
+    border-radius: 5px;
     font-weight: 500;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -1174,7 +1204,7 @@ body.login-page {
     opacity: 1;
     visibility: visible;
 }
-
+*/
 @media (max-width: 768px) {
     .product-container {
         grid-template-columns: 1fr;

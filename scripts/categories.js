@@ -1,14 +1,32 @@
 const categories = [{
+    categoryID: '1aba',
     image: 'images/biscuitssnacks-1.jpg',
     name: 'Snacks',
     description: 'From the cheapiest of your crunchy desires to the rmantic memories with chockoletes and biscuits.'
 },{
+    categoryID: '1abb',
     image: 'images/bacola-banner-01.jpg',
-    name: 'Farm Corner and Vegies',
+    name: 'Electronics',
     description: 'Get your fresh from the farm greens at an affordable price'
 },{
+    categoryID: '1abb',
+    image: 'images/bacola-banner-01.jpg',
+    name: 'Foods',
+    description: 'Get your fresh from the farm greens at an affordable price'
+},{
+    categoryID: '1abc',
     image: 'images/stacked-t-shirts.jpg',
-    name: 'Clothes & Merchindise | Coming Soon',
+    name: 'Clothes',
+    description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
+},{
+    categoryID: '1abc',
+    image: 'images/stacked-t-shirts.jpg',
+    name: 'Merch',
+    description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
+},{
+    categoryID: '1abc',
+    image: 'images/stacked-t-shirts.jpg',
+    name: 'Merch',
     description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
 }];
 
@@ -17,32 +35,18 @@ let categoriesHTML = '';
 categories.forEach((categories) => {
     categoriesHTML += `
   
-         <div class="category-card">
-
-                <img class="category-image" src="${categories.image}" alt="">
+    <a href="index.html?id=${categories.categoryID}" class="category-card">
+          <!--
+            <div>
+                <img class="category-image" src="${categories.image}" alt=""> -->
                 <h3 class="category-name">${categories.name}</h3>
-                <p class="category-description">${categories.description}</p>
+               <!-- <p class="category-description">${categories.description}</p> 
                 <div class="view-category">
-                    <button class="btn2"><a href="products.html">View Category</a></button>
+                    <!-- <button class="btn2">View Category</button>
                 </div>
-
-            </div>
+            </div> -->
+    </a>
     `;
 })
 
 document.querySelector('.js-categories-grid').innerHTML = categoriesHTML;
-
-const backToTop = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-        backToTop.style.display = 'block';
-    } else {
-        backToTop.style.display = 'none'
-    }
-});
-
-backToTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
