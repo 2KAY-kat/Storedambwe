@@ -87,11 +87,12 @@ export const products = [{
 },{
     id: '2024-0106-2031',
     image: 'images/egg-tray-768x768.webp',
-    name: 'Eggs | 1 only',
+    name: 'Egg | 1 only',
     dollar: 0.15,
     description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
 }];
 
+/*
 export const nav = [{
     icon: 'home',
     name: 'HOME',
@@ -109,3 +110,4 @@ export const nav = [{
     name: 'CART',
     link: 'checkout.html'
 }];
+*/
