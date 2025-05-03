@@ -90,6 +90,780 @@ export const products = [{
     name: 'Egg | 1 only',
     dollar: 0.15,
     description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
+}, {
+    id: '2024-0106-2030',
+    image: 'images/images-14-346x310.jpeg',
+    name: 'Farmers Pride Rice | 5kg',
+    dollar: 11.822,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+}, {
+    id: '2024-0106-2031',
+    image: 'images/images-50-346x310.webp',
+        name: 'Liberty Fruit & Nut | 1kg',
+    dollar: 4.591,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it' 
+},{
+    id: '2024-0106-2031',
+    image: 'images/egg-tray-768x768.webp',
+    name: 'Egg | 1 only',
+    dollar: 0.15,
+    description: 'some description apout the product here. These are insights about the product you would like to know about your given product no big deal about it'    
 }];
 
 /*
