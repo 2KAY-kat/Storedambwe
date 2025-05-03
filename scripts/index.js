@@ -1,25 +1,23 @@
 import { cart, addToCart } from './cart.js';
-import { header, hero, products, nav } from './data.js';
+import { header, hero, products, /*nav*/ } from './data.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
-}
+
+const toast = document.getElementById('toast');
+toast.classList.add('show');
+
+setTimeout(() => {
+    toast.classList.remove('show');
+}, 3000);
 
 let headerHTML = '';
 let heroHTML = '';
 let productsHTML = '';
-let navHTML = '';
+//let navHTML = '';
 
 
 header.forEach((header) => {
-headerHTML += `
+    headerHTML += `
 
         <div class="nav-logo">
             <img class="logo-navlogo-nav" src="${header.image}" alt="" />
@@ -51,7 +49,7 @@ hero.forEach((hero) => {
             <a href="${hero.hero_link}"><button class="btn2">${hero.hero_btn_value}<i class="fa  ${hero.hero_cart_icon}"></i> &rarr;</a></button></a>
         </div>
     `;
-    
+
 })
 
 document.querySelector('.hero').innerHTML = heroHTML;
@@ -67,6 +65,7 @@ products.forEach((product) => {
             <h3 class="product-name">${product.name}</h3>
                 <p class="product-price">MK${formatCurrency(product.dollar)}</p>
     <div class="view-details">
+         <!--<button class="btn1">Mark</button> -->
         <button class="btn1 add-to-cart js-add-to-cart"
                         data-product-id="${product.id}"><i
                                     class="fa fa-shopping-cart"></i></button>
@@ -77,7 +76,7 @@ products.forEach((product) => {
     `;
 })
 
-
+/*
 nav.forEach((nav) => {
     navHTML += `
     <a href="${nav.link}" class="nav-link">
@@ -89,7 +88,7 @@ nav.forEach((nav) => {
 })
 
 document.querySelector('nav').innerHTML = navHTML;
-
+*/
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 
@@ -111,18 +110,41 @@ function updateCartQuantity() {
     }
 }
 
+const addToCartBtn = document.querySelector('.js-add-to-cart');
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
         button.addEventListener('click', () => {
+            addToCartBtn.classList.add('animate__animated', 'animate__pulse');
             const productId = button.dataset.productId;
             addToCart(productId);
             updateCartQuantity();
-            
+
             // Find the product name
             const product = products.find(p => p.id === productId);
             showToast(`${product.name} added to cart`);
+
+            // Remove animation classes after animation completes
+            setTimeout(() => {
+                addToCartBtn.classList.remove('animate__animated', 'animate__pulse');
+            }, 1000);
         });
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show', 'animate__animated', 'animate__fadeInUp');
+
+            setTimeout(() => {
+                toast.classList.remove('show', 'animate__fadeInUp');
+                toast.classList.add('animate__fadeOutDown');
+
+                setTimeout(() => {
+                    toast.classList.remove('animate__animated', 'animate__fadeOutDown');
+                }, 300);
+            }, 3000);
+        }
     });
+
 
 const backToTop = document.getElementById('back-to-top');
 

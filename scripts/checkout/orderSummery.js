@@ -1,5 +1,5 @@
 import { cart, removeFromCart, updateDeliveryOption, updateQuantity } from '../cart.js';
-import { products, getProduct } from '../data.js';
+import { getProduct } from '../data.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 import dayjs from '../../package/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from '../deliveryOptions.js';
