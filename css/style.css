@@ -1204,6 +1204,10 @@ body.login-page {
   padding: 0 1rem;
 }
 
+.quick-nav a {
+  text-decoration: none;
+}
+
 .nav-icon {
   position: relative;
   display: flex;
@@ -1213,6 +1217,8 @@ body.login-page {
   height: 40px;
   transition: var(--fades);
   color: var(--text-mix-color);
+  cursor: pointer;
+
 }
 
 .nav-icon:hover {
@@ -1313,12 +1319,12 @@ body.login-page {
   cursor: pointer;
 }
 
-.btn1.js-add-to-cart:hover {
+.product-actions .btn1.js-add-to-cart:hover {
   background: var(--main-color);
   transform: translateY(-2px);
 }
 
-.btn1.js-add-to-cart i {
+.product-actions .btn1.js-add-to-cart i {
   font-size: 1.2rem;
 }
 
