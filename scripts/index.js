@@ -2,7 +2,7 @@ import { cart, addToCart } from './cart.js';
 import { header, hero, products, /*nav*/ } from './data.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
-
+// the functon that runs the toast notifications feature on the actual actions of response
 const toast = document.getElementById('toast');
 toast.classList.add('show');
 
@@ -10,11 +10,13 @@ setTimeout(() => {
     toast.classList.remove('show');
 }, 3000);
 
+// initialise the variables for the queries in the loop function
 let headerHTML = '';
 let heroHTML = '';
 let productsHTML = '';
 //let navHTML = '';
 
+// looping for the header, hero, products
 
 header.forEach((header) => {
     headerHTML += `
@@ -91,12 +93,14 @@ document.querySelector('nav').innerHTML = navHTML;
 */
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+// end of the forEach loop of the components of teh store
 
+// Loading the DOM for the cart quantity functions and all its scripts 
 document.addEventListener('DOMContentLoaded', () => {
     updateCartQuantity();
 });
 
-
+// by default the cart count be 0 (zero) 
 function updateCartQuantity() {
     let cartQuantity = 0;
 
@@ -110,6 +114,7 @@ function updateCartQuantity() {
     }
 }
 
+// Initialisiation of the toastification of the adding to cart that displays the product name on the toast as its being added to the cart while updating the cart count  
 const addToCartBtn = document.querySelector('.js-add-to-cart');
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
@@ -123,12 +128,13 @@ document.querySelectorAll('.js-add-to-cart')
             const product = products.find(p => p.id === productId);
             showToast(`${product.name} added to cart`);
 
-            // Remove animation classes after animation completes
+            // Remove of animation classes after animation completes
             setTimeout(() => {
                 addToCartBtn.classList.remove('animate__animated', 'animate__pulse');
             }, 1000);
         });
 
+        // self explainatory its in the name the ShowToast function in an animation way to keep it slick 
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
