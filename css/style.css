@@ -84,6 +84,81 @@ body {
   cursor: pointer;
 }
 
+/*
+input[type="search"] {
+  width: 500px;
+}
+*/
+
+/*******/
+
+
+/******** Search shit *********/
+
+.search__bar {
+    margin-top: 1rem;
+}
+
+.search__bar-container {
+    position: relative;
+    width: 30rem;
+    background: var(--color-gray-900);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0.6rem 1rem;
+    border-radius: var(--card-boder-radius-2);
+    color: var(--color-gray-300);
+}
+
+.search__bar-container > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search__bar input {
+    background: transparent;
+    margin-left: 0.7rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.search__bar input::placeholder {
+    color: var(--color-gray-300);
+}
+
+
+/**************   general button style ***********************/
+
+
+.btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    background: var(--color-primary);
+    border-radius: var (--card-boder-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-white);
+}
+
+/*******/
+
+::placeholder {
+  color: var(--accent-color);
+  font-family: Roboto, Arial;
+  font-weight: 500;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #7a7a7a;
+}
+
 .nav-menu hr {
   border: none;
   width: 80%;

@@ -37,7 +37,7 @@ if (product) {
     addToCartBtn.addEventListener('click', () => {
         addToCartBtn.classList.add('animate__animated', 'animate__pulse');
         addToCart(productId);
-        showToast(`${product.name} Added to cart!`);
+        showToast(`${product.name} Has been added to cart!`);
         
         // Remove animation classes after animation completes
         setTimeout(() => {
@@ -82,8 +82,8 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
             showToast('Link copied to clipboard!');
         }
     } catch (err) {
-        showToast('Error sharing product');
-        console.error('Error sharing:', err);
+        showToast('Failed to share product');
+        console.error('There was an error sharing:', err);
     }
 });
 
@@ -100,11 +100,11 @@ document.getElementById('bookmarkBtn').addEventListener('click', () => {
     
     // Show appropriate toast message
     showToast(icon.classList.contains('fas') ? 
-        'Product saved to bookmarks' : 
-        'Product removed from bookmarks');
+        `${product.name} has been added to bookmarks` : 
+        `${product.name} has been removed from bookmarks`);
     
     // Remove animation class after animation completes
     setTimeout(() => {
         bookmarkBtn.classList.remove('animate__animated', 'animate__rubberBand');
-    }, 1000);
+    }, 3000);
 });
