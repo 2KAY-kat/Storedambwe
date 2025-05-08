@@ -980,13 +980,14 @@ input:focus {
 
 .header-content {
   width: 100%;
-  max-width: 1100px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .checkout-header-left-section {
-  width: 150px;
+  width: auto;
 }
 
 .checkout-header-right-section .fa {
@@ -1060,7 +1061,7 @@ input:focus {
 
 .checkout-header-right-section {
   text-align: right;
-  width: 150px;
+  width: auto;
 }
 
 @media (max-width: 1000px) {
