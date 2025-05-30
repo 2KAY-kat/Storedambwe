@@ -6,7 +6,8 @@
 :root {
   --accent-color: #007bff;
   --border-color: #555;
-  --input-icon-color: #4e4e4e;
+  --input-register-color: #4e4e4e;
+  --input-icon-color: #126ccc;
   --main-color: #0056b3;
   --text-color: #333;
   --nav-background: #6e6e6e;
@@ -16,6 +17,7 @@
   --footer-random: #fdfddf;
   --price-color: #834343;
   --fades: background-color 0.3s ease;
+  --success-color: #008000;
   --fades-link: background-color 0.1s ease-in-out;
 }
 

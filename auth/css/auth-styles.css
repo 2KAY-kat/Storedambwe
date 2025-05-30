@@ -71,6 +71,10 @@
     color: var(--input-icon-color);
 }
 
+input[type] {
+    color: var(--accent-color);
+}
+
 i.toggle-password {
     left: auto; 
     right: 10px; 
@@ -102,7 +106,7 @@ i.toggle-password {
 
 .register-text {
     text-align: center;
-    color: var(--input-icon-color);
+    color: var(--input-register-color);
 }
 
 .register-text a,
@@ -160,7 +164,7 @@ i.toggle-password {
 }
 
 i.password-match-icon {
-    color: green; 
+    color: var(--success-color); 
     display: none;
     background-color: var(--main-color);
     border-radius: 50%;
