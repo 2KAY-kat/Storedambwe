@@ -46,15 +46,30 @@ const categories = [{
     description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
 }];
 
+// Add a mapping for icons (Font Awesome)
+const categoryIcons = {
+    'All': 'fa-th-large',
+    'Electronics': 'fa-tv',
+    'Clothing & Accessories': 'fa-tshirt',
+    'Food': 'fa-apple-alt',
+    'Entertainment': 'fa-film',
+    'Merch': 'fa-gift',
+    'Education': 'fa-book',
+    'Housing': 'fa-home',
+    'Vehicles': 'fa-car'
+};
+
 let categoriesHTML = '';
 
 categories.forEach((category, idx) => {
+    const iconClass = categoryIcons[category.name] || 'fa-tag';
     categoriesHTML += `
         <div 
             class="category-card${idx === 0 ? ' active' : ''} ${category.sta_tus || ''}" 
             data-category="${category.name}"
             tabindex="0"
         >
+            <span class="category-icon"><i class="fa ${iconClass}"></i></span>
             <h3>${category.name}</h3>
         </div>
     `;
