@@ -13,7 +13,6 @@ setTimeout(() => {
 // initialise the variables for the queries in the loop function
 let headerHTML = '';
 let heroHTML = '';
-let productsHTML = '';
 //let navHTML = '';
 
 // looping for the header, hero, products
@@ -60,26 +59,85 @@ hero.forEach((hero) => {
 document.querySelector('.hero').innerHTML = heroHTML;
 
 
-products.forEach((product) => {
-    productsHTML += `
+// Remove the initial products.forEach rendering
+// Instead, define a function to render products by category
 
-    
-<div class="product-card">
-                
-        <img class="product-image" src="${product.image}" alt="">
-            <h3 class="product-name">${product.name}</h3>
-                <p class="product-price">MK${formatCurrency(product.dollar)}</p>
-    <div class="view-details">
-         <!--<button class="btn1">Mark</button> -->
-        <button class="btn1 add-to-cart js-add-to-cart"
-                        data-product-id="${product.id}"><i
-                                    class="fa fa-shopping-cart"></i></button>
-        <button class="btn2"><a href="view-details.html?id=${product.id}">Details</a></button>
-     </div>
+function renderProductsByCategory(categoryName) {
+    let productsHTML = '';
+    let filteredProducts;
 
-</div>
-    `;
-})
+    if (categoryName === 'All') {
+        filteredProducts = products;
+    } else {
+        filteredProducts = products.filter(product => product.category === categoryName);
+    }
+
+    if (filteredProducts.length === 0) {
+        productsHTML = `
+            <div class="no-products-message">
+                <div class="no-products-svg">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <circle cx="60" cy="60" r="56" stroke="#e0e0e0" stroke-width="8" fill="#fafafa"/>
+                        <ellipse cx="60" cy="85" rx="28" ry="10" fill="#e0e0e0" opacity="0.5"/>
+                        <path d="M40 60 Q60 80 80 60" stroke="#bdbdbd" stroke-width="4" fill="none" />
+                        <circle cx="50" cy="55" r="4" fill="#bdbdbd"/>
+                        <circle cx="70" cy="55" r="4" fill="#bdbdbd"/>
+                        <path d="M55 75 Q60 78 65 75" stroke="#bdbdbd" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="no-products-text">
+                    <h3>No products found</h3>
+                    <p>Sorry, there are no products in this category yet.</p>
+                </div>
+            </div>
+        `;
+    } else {
+        filteredProducts.forEach((product) => {
+            productsHTML += `
+                <div class="product-card">
+                    <img class="product-image" src="${product.image}" alt="">
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-price">MK${formatCurrency(product.dollar)}</p>
+                    <div class="view-details">
+                        <button class="btn1 add-to-cart js-add-to-cart"
+                            data-product-id="${product.id}"><i
+                            class="fa fa-shopping-cart"></i></button>
+                        <button class="btn2"><a href="view-details.html?id=${product.id}">Details</a></button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+    // Re-attach add-to-cart event listeners if there are products
+    if (filteredProducts.length > 0) {
+        document.querySelectorAll('.js-add-to-cart')
+            .forEach((button) => {
+                button.addEventListener('click', () => {
+                    button.classList.add('animate__animated', 'animate__pulse');
+                    const productId = button.dataset.productId;
+                    addToCart(productId);
+                    updateCartQuantity();
+
+                    // Find the product name
+                    const product = products.find(p => p.id === productId);
+                    showToast(`${product.name} added to cart`);
+
+                    setTimeout(() => {
+                        button.classList.remove('animate__animated', 'animate__pulse');
+                    }, 1000);
+                });
+            });
+    }
+}
+
+// Expose to window for categories.js to call
+window.renderProductsByCategory = renderProductsByCategory;
+
+// Initial render: show all products
+renderProductsByCategory('All');
 
 /*
 nav.forEach((nav) => {
@@ -136,24 +194,23 @@ document.querySelectorAll('.js-add-to-cart')
                 addToCartBtn.classList.remove('animate__animated', 'animate__pulse');
             }, 1000);
         });
-
-        // self explainatory its in the name the ShowToast function in an animation way to keep it slick 
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.add('show', 'animate__animated', 'animate__fadeInUp');
-
-            setTimeout(() => {
-                toast.classList.remove('show', 'animate__fadeInUp');
-                toast.classList.add('animate__fadeOutDown');
-
-                setTimeout(() => {
-                    toast.classList.remove('animate__animated', 'animate__fadeOutDown');
-                }, 300);
-            }, 3000);
-        }
     });
 
+// Move showToast outside the loop so it can be reused
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show', 'animate__animated', 'animate__fadeInUp');
+
+    setTimeout(() => {
+        toast.classList.remove('show', 'animate__fadeInUp');
+        toast.classList.add('animate__fadeOutDown');
+
+        setTimeout(() => {
+            toast.classList.remove('animate__animated', 'animate__fadeOutDown');
+        }, 300);
+    }, 3000);
+}
 
 const backToTop = document.getElementById('back-to-top');
 

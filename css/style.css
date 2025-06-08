@@ -352,6 +352,10 @@ input {
 /******** products */
 .products {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .products h2 {
@@ -365,6 +369,8 @@ input {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  width: 100%;
+  justify-items: center;
 }
 
 .product-card {
@@ -563,7 +569,10 @@ input {
 }
 
 .category-card.active {
-  background-color: var(--text-mix-color);
+    background: var(--random-color);
+    color: #fff;
+    border: 2px solid var(--main-color);
+    /* Add any other highlight styles you want */
 }
 
 .category-card.active h3 {
@@ -1407,58 +1416,52 @@ body.login-page {
   font-size: 1.2rem;
 }
 
-/*
-.toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--main-color);
-    color: var(--text-mix-color);
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    font-weight: 500;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+
+.no-products-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    background: var(--text-mix-color);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    margin: 32px 0;
+    padding: 32px 16px;
+    max-width: 400px;
+    animation: fadeIn 0.7s;
+    /* Remove left/translateX, use margin auto for centering */
+    position: static;
+    left: unset;
+    transform: unset;
 }
 
-.toast.show {
-    opacity: 1;
-    visibility: visible;
+.no-products-svg {
+    margin-bottom: 16px;
+    animation: floatY 2s infinite ease-in-out;
 }
-*/
-@media (max-width: 768px) {
-  .product-container {
-    grid-template-columns: 1fr;
-    margin: 1rem;
-    padding: 1rem;
-  }
 
-  .product-image-details {
-    max-height: 300px;
-  }
-
-  .product-info h1 {
+.no-products-text h3 {
+    color: var(--main-color);
     font-size: 1.5rem;
-  }
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-align: center;
+}
 
-  .view-details-price {
-    font-size: 1.5rem;
-  }
+.no-products-text p {
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+}
 
-  .quick-nav {
-    padding: 0.75rem;
-  }
+@keyframes floatY {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-10px);}
+}
 
-  .quick-nav ul {
-    padding: 0 0.5rem;
-  }
-
-  .nav-icon {
-    width: 35px;
-    height: 35px;
-  }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95);}
+    to { opacity: 1; transform: scale(1);}
 }

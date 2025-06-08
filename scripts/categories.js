@@ -48,44 +48,47 @@ const categories = [{
 
 let categoriesHTML = '';
 
-categories.forEach((categories) => {
+categories.forEach((category, idx) => {
     categoriesHTML += `
-  
-    <div href="index.html?id=${categories.categoryID}" class="category-card ${categories.sta_tus}">
-          <!--
-            <div>
-                <img class="category-image" src="${categories.image}" alt=""> 
-                -->
-
-                <h3>${categories.name}</h3>
-
-               <!-- 
-               <p class="category-description">${categories.description}</p> 
-                <div class="view-category">
-                    <button class="btn2">View Category</button>
-                </div>
-            </div> -->
-    </div>
+        <div 
+            class="category-card${idx === 0 ? ' active' : ''} ${category.sta_tus || ''}" 
+            data-category="${category.name}"
+            tabindex="0"
+        >
+            <h3>${category.name}</h3>
+        </div>
     `;
-})
+});
 
 document.querySelector('.js-categories-grid').innerHTML = categoriesHTML;
 
-//mine great but simple
-/*
-window.addEventListener("scroll", function () {
-    const tabs = document.getElementById("category-tabs");
-    const wrapper = document.getElementById("categoy-tabs-wrapper");
-    const wrapperTop = wrapper.offsetTop;
+// Category filtering logic
+const categoryCards = document.querySelectorAll('.category-card');
 
-    if (window.scrollY >= wrapperTop) {
-        tabs.classList.add("sticky");
-    } else {
-        tabs.classList.remove("sticky");
+function setActiveCategory(selectedCard) {
+    categoryCards.forEach(card => card.classList.remove('active'));
+    selectedCard.classList.add('active');
+}
+
+function filterProductsByCategory(categoryName) {
+    // Expose this function from index.js
+    if (window.renderProductsByCategory) {
+        window.renderProductsByCategory(categoryName);
     }
-});
+}
 
-*/
+categoryCards.forEach(card => {
+    card.addEventListener('click', () => {
+        setActiveCategory(card);
+        const categoryName = card.getAttribute('data-category');
+        filterProductsByCategory(categoryName);
+    });
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            card.click();
+        }
+    });
+});
 
 const category = document.getElementById('categories');
 const stickyTigger = document.getElementById('sticky-trigger');
