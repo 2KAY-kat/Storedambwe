@@ -15,7 +15,7 @@
   --text-mix-color: #fff;
   --random-color: #ddd;
   --footer-random: #fdfddf;
-  --price-color: #834343;
+  --price-color: #333 /*#834343  old tricky reish color was an awesome ride bruh*/;
   --fades: background-color 0.3s ease;
   --success-color: #008000;
   --fades-link: background-color 0.1s ease-in-out;
@@ -1484,7 +1484,7 @@ body.login-page {
 }
 
 .no-products-text h3 {
-    color: var(--main-color);
+    color: var(--text-color);
     font-size: 1.5rem;
     margin-bottom: 8px;
     font-weight: 600;

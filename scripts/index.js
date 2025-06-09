@@ -59,8 +59,8 @@ hero.forEach((hero) => {
 document.querySelector('.hero').innerHTML = heroHTML;
 
 
-// Remove the initial products.forEach rendering
-// Instead, define a function to render products by category
+//NOTED UPDATE: Removed the initial products.forEach rendering engine
+// Instead, defined a function to render products by category we going places and yeah its rough...
 
 function renderProductsByCategory(categoryName) {
     let productsHTML = '';
@@ -77,12 +77,12 @@ function renderProductsByCategory(categoryName) {
             <div class="no-products-message">
                 <div class="no-products-svg">
                     <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                        <circle cx="60" cy="60" r="56" stroke="#e0e0e0" stroke-width="8" fill="#fafafa"/>
-                        <ellipse cx="60" cy="85" rx="28" ry="10" fill="#e0e0e0" opacity="0.5"/>
-                        <path d="M40 60 Q60 80 80 60" stroke="#bdbdbd" stroke-width="4" fill="none" />
-                        <circle cx="50" cy="55" r="4" fill="#bdbdbd"/>
-                        <circle cx="70" cy="55" r="4" fill="#bdbdbd"/>
-                        <path d="M55 75 Q60 78 65 75" stroke="#bdbdbd" stroke-width="2" fill="none"/>
+                        <circle cx="60" cy="60" r="56" stroke="#007bff" stroke-width="8" fill="#333"/>
+                        <ellipse cx="60" cy="85" rx="28" ry="10" fill="#0056b3" opacity="0.5"/>
+                        <path d="M40 60 Q60 80 80 60" stroke="#007bff" stroke-width="4" fill="none" />
+                        <circle cx="50" cy="55" r="4" fill="#007bff"/>
+                        <circle cx="70" cy="55" r="4" fill="#007bff"/>
+                        <path d="M55 75 Q60 78 65 75" stroke="#333" stroke-width="2" fill="#007bff"/>
                     </svg>
                 </div>
                 <div class="no-products-text">
