@@ -83,6 +83,9 @@ const categoryCards = document.querySelectorAll('.category-card');
 function setActiveCategory(selectedCard) {
     categoryCards.forEach(card => card.classList.remove('active'));
     selectedCard.classList.add('active');
+    // Save selected category to localStorage
+    const categoryName = selectedCard.getAttribute('data-category');
+    localStorage.setItem('selectedCategory', categoryName);
 }
 
 function filterProductsByCategory(categoryName) {
@@ -91,6 +94,26 @@ function filterProductsByCategory(categoryName) {
         window.renderProductsByCategory(categoryName);
     }
 }
+
+// Restore selected category from localStorage on page load
+(function restoreCategorySelection() {
+    const savedCategory = localStorage.getItem('selectedCategory');
+    let found = false;
+    if (savedCategory) {
+        categoryCards.forEach(card => {
+            if (card.getAttribute('data-category') === savedCategory) {
+                setActiveCategory(card);
+                filterProductsByCategory(savedCategory);
+                found = true;
+            }
+        });
+    }
+    // If not found, default to first category
+    if (!found && categoryCards.length > 0) {
+        setActiveCategory(categoryCards[0]);
+        filterProductsByCategory(categoryCards[0].getAttribute('data-category'));
+    }
+})();
 
 categoryCards.forEach(card => {
     card.addEventListener('click', () => {
