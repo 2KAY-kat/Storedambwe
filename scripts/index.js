@@ -136,8 +136,13 @@ function renderProductsByCategory(categoryName) {
 // Expose to window for categories.js to call
 window.renderProductsByCategory = renderProductsByCategory;
 
-// Initial render: show all products
-renderProductsByCategory('All');
+// Restore category selection and products after renderProductsByCategory is ready
+if (window.restoreCategorySelection) {
+    window.restoreCategorySelection();
+}
+
+// Remove this line (let restoreCategorySelection handle initial render):
+// renderProductsByCategory('All');
 
 /*
 nav.forEach((nav) => {

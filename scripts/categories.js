@@ -95,8 +95,8 @@ function filterProductsByCategory(categoryName) {
     }
 }
 
-// Restore selected category from localStorage on page load
-(function restoreCategorySelection() {
+// Restore selected category from localStorage (deferred until products grid is ready)
+function restoreCategorySelection() {
     const savedCategory = localStorage.getItem('selectedCategory');
     let found = false;
     if (savedCategory) {
@@ -113,7 +113,10 @@ function filterProductsByCategory(categoryName) {
         setActiveCategory(categoryCards[0]);
         filterProductsByCategory(categoryCards[0].getAttribute('data-category'));
     }
-})();
+}
+
+// Expose restore function for index.js to call after renderProductsByCategory is ready
+window.restoreCategorySelection = restoreCategorySelection;
 
 categoryCards.forEach(card => {
     card.addEventListener('click', () => {
