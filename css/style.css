@@ -719,19 +719,17 @@ input {
 
 @media (max-width: 480px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    padding: 0 8px;
   }
-
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-top h3 {
-    font-size: 16px;
-  }
-
-  .footer-top li {
-    margin-bottom: 5px;
+  .product-card {
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
+    /* Let height be auto for variable card sizes */
   }
 }
 
