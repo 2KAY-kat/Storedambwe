@@ -48,7 +48,7 @@ const categories = [{
 
 // Add a mapping for icons (Font Awesome)
 const categoryIcons = {
-    'All': 'fa-th-large',
+    'All': 'fa-th',
     'Electronics': 'fa-tv',
     'Clothing & Accessories': 'fa-tshirt',
     'Food': 'fa-apple-alt',
