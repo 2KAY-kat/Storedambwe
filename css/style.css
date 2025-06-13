@@ -1,5 +1,5 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css);
-@import url(./fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css); /*** fallback for local devenv offline typeshit ***/
+@import url(./fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css); /*** fallback for local devenv offline typeshit .gitignored ***/
 @import url(style-footer.css);
 @import url(./../auth/css/auth-styles.css);
 
@@ -356,6 +356,7 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 60vh; /* Ensure enough height for vertical centering */
 }
 
 .products h2 {
@@ -1466,13 +1467,14 @@ body.login-page {
     background: var(--text-mix-color);
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    margin: 32px 0;
+    margin: auto;
     padding: 32px 16px;
     max-width: 400px;
     animation: fadeIn 0.7s;
-    /* Remove left/translateX, use margin auto for centering */
-    position: static;
+    /* Center horizontally and vertically */
+    position: relative;
     left: unset;
+    top: unset;
     transform: unset;
 }
 
