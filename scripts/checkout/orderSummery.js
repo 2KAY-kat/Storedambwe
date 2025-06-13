@@ -40,7 +40,7 @@ export function renderOrderSummary() {
 
                 <div class="cart-item-details">
                     <div class="product-name">
-                    ${matchingProduct.name}
+                    <a href="view-details.html?id=${matchingProduct.id}">${matchingProduct.name}</a>
                     </div>
                     <div class="product-price">
                     $${formatCurrency(matchingProduct.dollar)}
