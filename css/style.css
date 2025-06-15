@@ -1293,23 +1293,33 @@ body.login-page {
 */
 /* Toast notification styles */
 .toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--main-color);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 5px;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+    visibility: hidden;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    background: var(--accent-color);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1001;
 }
 
 .toast.show {
-  opacity: 1;
-  visibility: visible;
+    visibility: visible;
+    animation: fade-in 0.3s, fade-out 0.3s 2.7s;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; transform: translate(-50%, 0); }
+    to { opacity: 0; transform: translate(-50%, 20px); }
 }
 
 .details-page {

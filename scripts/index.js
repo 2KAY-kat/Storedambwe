@@ -2,14 +2,6 @@ import { cart, addToCart } from './cart.js';
 import { header, hero, products, /*nav*/ } from './data.js';
 import { formatCurrency } from './utilities/calculate_cash.js';
 
-// the functon that runs the toast notifications feature on the actual actions of response
-const toast = document.getElementById('toast');
-toast.classList.add('show');
-
-setTimeout(() => {
-    toast.classList.remove('show');
-}, 3000);
-
 // initialise the variables for the queries in the loop function
 let headerHTML = '';
 let heroHTML = '';
@@ -118,12 +110,11 @@ function renderProductsByCategory(categoryName) {
                 button.addEventListener('click', () => {
                     button.classList.add('animate__animated', 'animate__pulse');
                     const productId = button.dataset.productId;
-                    addToCart(productId);
-                    updateCartQuantity();
-
-                    // Find the product name
-                    const product = products.find(p => p.id === productId);
-                    showToast(`${product.name} added to cart`);
+                    const result = addToCart(productId);
+                    
+                    if (result) {
+                        updateCartQuantity();
+                    }
 
                     setTimeout(() => {
                         button.classList.remove('animate__animated', 'animate__pulse');
@@ -192,7 +183,7 @@ document.querySelectorAll('.js-add-to-cart')
 
             // Find the product name
             const product = products.find(p => p.id === productId);
-            showToast(`${product.name} added to cart`);
+            //showToast(`${product.name} added to cart`);
 
             // Remove of animation classes after animation completes
             setTimeout(() => {
@@ -200,22 +191,6 @@ document.querySelectorAll('.js-add-to-cart')
             }, 1000);
         });
     });
-
-// Move showToast outside the loop so it can be reused
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.add('show', 'animate__animated', 'animate__fadeInUp');
-
-    setTimeout(() => {
-        toast.classList.remove('show', 'animate__fadeInUp');
-        toast.classList.add('animate__fadeOutDown');
-
-        setTimeout(() => {
-            toast.classList.remove('animate__animated', 'animate__fadeOutDown');
-        }, 300);
-    }, 3000);
-}
 
 const backToTop = document.getElementById('back-to-top');
 
@@ -226,6 +201,24 @@ window.addEventListener('scroll', () => {
         backToTop.style.display = 'none'
     }
 });
+
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        backToTop.style.display = 'block';
+    } else {
+        backToTop.style.display = 'none'
+    }
+});
+
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+   
 
 backToTop.addEventListener('click', (e) => {
     e.preventDefault();
