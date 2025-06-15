@@ -1,47 +1,59 @@
+// Import products to get product name
 import { products } from './data.js';
-import { showToast } from './utilities/toast.js';
-import { TOAST_MESSAGES } from './utilities/messages.js';
 
-export let cart = (() => {
-    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Validate saved cart items against current products
-    return savedCart.filter(item => {
-        const productExists = products.some(p => p.id === item.productId);
-        return productExists;
-    });
-})();
+// Add showToast function at the top
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (toast) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+}
+
+export let cart = JSON.parse(localStorage.getItem('cart'));
+
+if(!cart) {
+    cart = [
+        /*{
+        productId: '2024-0106-2022',
+        quantity: 2,
+        deliveryOptionId:'1'
+    },{
+        productId: '2024-0106-2023',
+        quantity: 1,
+        deliveryOptionId: '2'
+    }
+        ***/];
+}
 
 function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 export function addToCart(productId) {
-    // Validate inputs
-    if (!productId) return false;
+    let matchingItem;
 
-    const product = products.find(p => p.id === productId);
-    if (!product) return false;
+    cart.forEach((cartItem) => {
+        if (productId === cartItem.productId) {
+            matchingItem = cartItem;
+        }
+    });
 
-    // Check if item exists in cart using strict comparison
-    const exists = cart.some(item => item.productId === productId);
-    
-    if (exists) {
-        showToast(TOAST_MESSAGES.ALREADY_IN_LIST(product.name));
-        return false;
+    if (matchingItem) {
+        matchingItem.quantity += 1;
+    } else {
+        cart.push({
+            productId: productId,
+            quantity: 1,
+            deliveryOptionId: '1'
+        });
     }
 
-    // Add new item with fresh state
-    const newItem = {
-        productId: productId,
-        quantity: 1,
-        deliveryOptionId: '1'
-    };
-
-    cart.push(newItem);
     saveToStorage();
-    showToast(TOAST_MESSAGES.ADDED_TO_LIST(product.name));
-    return true;
 }
 
 export function removeFromCart(productId) {
@@ -62,7 +74,7 @@ export function removeFromCart(productId) {
 
     // Show toast notification after removing item
     if (product) {
-        showToast(TOAST_MESSAGES.REMOVED_FROM_LIST(product.name));
+        showToast(`${product.name} removed from cart`);
     }
 }
 

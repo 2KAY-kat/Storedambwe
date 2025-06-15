@@ -18,7 +18,6 @@
   --price-color: #333 /*#834343  old tricky reish color was an awesome ride bruh*/;
   --fades: background-color 0.3s ease;
   --success-color: #008000;
-  --error-color: #6d2b2b;
   --fades-link: background-color 0.1s ease-in-out;
 }
 
@@ -1293,33 +1292,23 @@ body.login-page {
 */
 /* Toast notification styles */
 .toast {
-    visibility: hidden;
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    background: var(--accent-color);
-    color: white;
-    padding: 16px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    z-index: 1001;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--main-color);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 }
 
 .toast.show {
-    visibility: visible;
-    animation: fade-in 0.3s, fade-out 0.3s 2.7s;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translate(-50%, 20px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
-}
-
-@keyframes fade-out {
-    from { opacity: 1; transform: translate(-50%, 0); }
-    to { opacity: 0; transform: translate(-50%, 20px); }
+  opacity: 1;
+  visibility: visible;
 }
 
 .details-page {
@@ -1522,98 +1511,4 @@ body.login-page {
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95);}
     to { opacity: 1; transform: scale(1);}
-}
-
-/* Modal styles */
-.modal {
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0; 
-  width: 100vw; 
-  height: 100vh;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  background: rgba(0,0,0,0.4);
-  -webkit-backdrop-filter: blur(4px); 
-  backdrop-filter: blur(4px); 
-}
-
-.modal-content {
-  background: var(--random-color);
-  border-radius: 8px;
-  padding: 2rem 2rem 1.5rem 2rem;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
-  min-width: 320px;
-  max-width: 90vw;
-  position: relative;
-  text-align: center;
-}
-
-.modal-body {
-    text-align: center;
-}
-
-.modal-body i {
-    font-size: 2rem;
-    color: #e74c3c;
-}
-
-.modal-body h3 {
-    margin: 1rem 0 0.5rem 0;
-    color: #e74c3c;
-}
-
-.modal-body p {
-    margin-bottom: 1.5rem;
-}
-
-.modal-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.modal-confirm-btn {
-    background: #e74c3c;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.modal-confirm-btn:hover {
-    background: var(--error-color);
-    color: var(--main-color);
-    border: none;
-    cursor: pointer;
-}
-
-.modal-cancel-btn {
-    background: #fff;
-    color: #222;
-    border: 1px solid #ccc;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-
-.modal-cancel-btn:hover {
-    background: var(--main-color);
-    color: var(--text-mix-color);
-    cursor: pointer;
-}
-
-
-.modal-close {
-  position: absolute;
-  right: 1rem; top: 1rem;
-  font-size: 1.5rem;
-  color: var(--text-color);
-  cursor: pointer;
-}
-.modal-close:hover { 
-  color: var(--error-color); 
 }
