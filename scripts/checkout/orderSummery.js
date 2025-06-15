@@ -15,23 +15,15 @@ export function renderOrderSummary() {
 
     cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-
     const matchingProduct = getProduct(productId);
-
-
-    const deliveryOptionId = cartItem.deliveryOptionId;
-
-    const deliveryOption = getDeliveryOption(deliveryOptionId);
-
-
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryHours, 'hour');  
-    const dateString = deliveryDate.format('dddd, MMMM D [at] h:mm A');    
+    
+    const postedDate = dayjs(matchingProduct.postedDate);
+    const dateString = postedDate.format('dddd, MMMM D, YYYY');
 
     cartSummaryHTML += `
         <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
                 <div class="delivery-date">
-                Delivery date: ${dateString}
+                Posted on: ${dateString}
                 </div>
 
                 <div class="cart-item-details-grid">

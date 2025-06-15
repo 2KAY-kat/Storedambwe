@@ -157,7 +157,7 @@ nav.forEach((nav) => {
 
 document.querySelector('nav').innerHTML = navHTML;
 */
-document.querySelector('.js-products-grid').innerHTML = productsHTML;
+//document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 // end of the forEach loop of the components of teh store
 
