@@ -2,36 +2,28 @@ import { cart, removeFromCart, updateDeliveryOption, updateQuantity } from '../c
 import { getProduct } from '../data.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 import dayjs from '../../package/esm/index.js';
-import { deliveryOptions, getDeliveryOption } from '../deliveryOptions.js';
+import { deliveryOptions} from '../deliveryOptions.js';
 import { renderPaymentSummary } from './paymentsummary.js';
 
 
 
 export function renderOrderSummary() {
     console.log('Cart:', cart); 
-    console.log('Delivery Options:', deliveryOptions); 
+    /*console.log('Delivery Options:', deliveryOptions); */
 
     let cartSummaryHTML = '';
 
     cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-
     const matchingProduct = getProduct(productId);
-
-
-    const deliveryOptionId = cartItem.deliveryOptionId;
-
-    const deliveryOption = getDeliveryOption(deliveryOptionId);
-
-
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryHours, 'hour');  
-    const dateString = deliveryDate.format('dddd, MMMM D [at] h:mm A');    
+    
+    const postedDate = dayjs(matchingProduct.postedDate);
+    const dateString = postedDate.format('dddd, MMMM D, YYYY');
 
     cartSummaryHTML += `
         <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
                 <div class="delivery-date">
-                Delivery date: ${dateString}
+                Posted on: ${dateString}
                 </div>
 
                 <div class="cart-item-details-grid">
@@ -46,6 +38,10 @@ export function renderOrderSummary() {
                     $${formatCurrency(matchingProduct.dollar)}
                     </div>
                     <div class="product-quantity">
+
+
+
+                    <!--
                     <span>
                         Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
                     </span>
@@ -56,8 +52,11 @@ export function renderOrderSummary() {
                     <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">
                         Save
                     </span>
+                    -->
+
+
                     <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
-                        Delete
+                        <i class="fa fa-trash"></i> Delete
                     </span>
                     </div>
                 </div>
@@ -130,7 +129,7 @@ export function renderOrderSummary() {
     } else {
         console.error('Order summary element not found!');
     }
-
+/*
     document.querySelectorAll('.js-update-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
@@ -158,16 +157,15 @@ export function renderOrderSummary() {
       }
 
       updateQuantity(productId, newQuantity);
-
+*/
+ document.querySelectorAll('.js-update-link')
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
       const container = document.querySelector(
         `.js-cart-item-container-${productId}`
       );
       container.classList.remove('is-editing-quantity');
-
-      const quantityLabel = document.querySelector(
-        `.js-quantity-label-${productId}`
-      );
-      quantityLabel.innerHTML = newQuantity;
 
       updateQuantity();
     });
@@ -176,12 +174,11 @@ export function renderOrderSummary() {
 
     document.querySelectorAll('.js-delete-link')
     .forEach((link) => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
             const productId = link.dataset.productId;
-            removeFromCart(productId);
-
-            renderOrderSummary();
-            renderPaymentSummary();
+            // Show modal and store productId to delete
+            showDeleteModal(productId);
         });
     });
 
@@ -207,3 +204,39 @@ document.querySelector('.js-return-to-home-link')
     
 }
 
+// Modal logic for delete confirmation
+function showDeleteModal(productId) {
+    const modal = document.getElementById('delete-modal');
+    modal.style.display = 'flex';
+    // Store productId on modal for later use
+    modal.dataset.productId = productId;
+}
+
+function hideDeleteModal() {
+    const modal = document.getElementById('delete-modal');
+    modal.style.display = 'none';
+    modal.dataset.productId = '';
+}
+
+// Modal event listeners
+const modal = document.getElementById('delete-modal');
+if (modal) {
+    // Confirm delete
+    document.getElementById('modal-confirm-btn').onclick = function() {
+        const productId = modal.dataset.productId;
+        if (productId) {
+            removeFromCart(productId);
+            renderOrderSummary();
+            renderPaymentSummary();
+        }
+        hideDeleteModal();
+    };
+    // Cancel delete
+    document.getElementById('modal-cancel-btn').onclick = hideDeleteModal;
+    // Close (X) button
+    document.getElementById('modal-close-btn').onclick = hideDeleteModal;
+    // Optional: close modal when clicking outside content
+    modal.onclick = function(e) {
+        if (e.target === modal) hideDeleteModal();
+    };
+}
