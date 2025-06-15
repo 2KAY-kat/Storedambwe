@@ -1,4 +1,4 @@
-import { cart, removeFromCart, updateDeliveryOption, updateQuantity } from '../cart.js';
+import { cart, removeFromCart, updateDeliveryOption, updateQuantity, clearCart } from '../cart.js';
 import { getProduct } from '../data.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 import dayjs from '../../package/esm/index.js';
@@ -205,11 +205,22 @@ document.querySelector('.js-return-to-home-link')
 }
 
 // Modal logic for delete confirmation
-function showDeleteModal(productId) {
+function showDeleteModal(productId = null) {
     const modal = document.getElementById('delete-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalMessage = document.getElementById('modal-message');
+    
+    if (productId) {
+        modalTitle.textContent = 'Remove Item?';
+        modalMessage.textContent = 'Are you sure you want to remove this item from your saved list?';
+    } else {
+        modalTitle.textContent = 'Delete All Items?';
+        modalMessage.textContent = 'Are you sure you want to remove all items from your saved list?';
+    }
+    
     modal.style.display = 'flex';
-    // Store productId on modal for later use
-    modal.dataset.productId = productId;
+    modal.dataset.productId = productId || '';
+    modal.dataset.isDeleteAll = !productId;
 }
 
 function hideDeleteModal() {
@@ -224,13 +235,26 @@ if (modal) {
     // Confirm delete
     document.getElementById('modal-confirm-btn').onclick = function() {
         const productId = modal.dataset.productId;
-        if (productId) {
+        const isDeleteAll = modal.dataset.isDeleteAll === 'true';
+        
+        if (isDeleteAll) {
+            clearCart();
+        } else if (productId) {
             removeFromCart(productId);
-            renderOrderSummary();
-            renderPaymentSummary();
         }
+        
+        renderOrderSummary();
+        renderPaymentSummary();
         hideDeleteModal();
     };
+    
+    // Add Delete All button listener
+    document.getElementById('clear-cart-btn')?.addEventListener('click', () => {
+        if (cart.length > 0) {
+            showDeleteModal();
+        }
+    });
+    
     // Cancel delete
     document.getElementById('modal-cancel-btn').onclick = hideDeleteModal;
     // Close (X) button

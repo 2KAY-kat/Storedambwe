@@ -96,3 +96,9 @@ export function updateQuantity(productId, newQuantity) {
   
     saveToStorage();
 }
+
+export function clearCart() {
+    cart = [];
+    saveToStorage();
+    showToast(TOAST_MESSAGES.REMOVED_ALL_ITEMS);
+}

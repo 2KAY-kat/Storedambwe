@@ -1617,3 +1617,21 @@ body.login-page {
 .modal-close:hover { 
   color: var(--error-color); 
 }
+
+.clear-cart-btn {
+    margin-left: 15px;
+    padding: 8px 16px;
+    background-color: var(--input-icon-color);
+    color: var(--error-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.clear-cart-btn:hover {
+    background-color: #c82333;
+}
