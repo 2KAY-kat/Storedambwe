@@ -2,14 +2,14 @@ import { cart, removeFromCart, updateDeliveryOption, updateQuantity } from '../c
 import { getProduct } from '../data.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 import dayjs from '../../package/esm/index.js';
-import { deliveryOptions, getDeliveryOption } from '../deliveryOptions.js';
+import { deliveryOptions} from '../deliveryOptions.js';
 import { renderPaymentSummary } from './paymentsummary.js';
 
 
 
 export function renderOrderSummary() {
     console.log('Cart:', cart); 
-    console.log('Delivery Options:', deliveryOptions); 
+    /*console.log('Delivery Options:', deliveryOptions); */
 
     let cartSummaryHTML = '';
 
@@ -37,8 +37,8 @@ export function renderOrderSummary() {
                     <div class="product-price">
                     $${formatCurrency(matchingProduct.dollar)}
                     </div>
-                    
                     <div class="product-quantity">
+
 
 
                     <!--
@@ -54,7 +54,7 @@ export function renderOrderSummary() {
                     </span>
                     -->
 
-                    
+
                     <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                         <i class="fa fa-trash"></i> Delete
                     </span>
@@ -129,7 +129,7 @@ export function renderOrderSummary() {
     } else {
         console.error('Order summary element not found!');
     }
-
+/*
     document.querySelectorAll('.js-update-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
@@ -157,16 +157,15 @@ export function renderOrderSummary() {
       }
 
       updateQuantity(productId, newQuantity);
-
+*/
+ document.querySelectorAll('.js-update-link')
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
       const container = document.querySelector(
         `.js-cart-item-container-${productId}`
       );
       container.classList.remove('is-editing-quantity');
-
-      const quantityLabel = document.querySelector(
-        `.js-quantity-label-${productId}`
-      );
-      quantityLabel.innerHTML = newQuantity;
 
       updateQuantity();
     });
