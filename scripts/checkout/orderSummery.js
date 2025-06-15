@@ -37,7 +37,11 @@ export function renderOrderSummary() {
                     <div class="product-price">
                     $${formatCurrency(matchingProduct.dollar)}
                     </div>
+                    
                     <div class="product-quantity">
+
+
+                    <!--
                     <span>
                         Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
                     </span>
@@ -48,8 +52,11 @@ export function renderOrderSummary() {
                     <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">
                         Save
                     </span>
+                    -->
+
+                    
                     <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
-                        Delete
+                        <i class="fa fa-trash"></i> Delete
                     </span>
                     </div>
                 </div>
@@ -168,12 +175,11 @@ export function renderOrderSummary() {
 
     document.querySelectorAll('.js-delete-link')
     .forEach((link) => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
             const productId = link.dataset.productId;
-            removeFromCart(productId);
-
-            renderOrderSummary();
-            renderPaymentSummary();
+            // Show modal and store productId to delete
+            showDeleteModal(productId);
         });
     });
 
@@ -197,5 +203,42 @@ document.querySelector('.js-return-to-home-link')
     });
 
     
+}
+
+// Modal logic for delete confirmation
+function showDeleteModal(productId) {
+    const modal = document.getElementById('delete-modal');
+    modal.style.display = 'flex';
+    // Store productId on modal for later use
+    modal.dataset.productId = productId;
+}
+
+function hideDeleteModal() {
+    const modal = document.getElementById('delete-modal');
+    modal.style.display = 'none';
+    modal.dataset.productId = '';
+}
+
+// Modal event listeners
+const modal = document.getElementById('delete-modal');
+if (modal) {
+    // Confirm delete
+    document.getElementById('modal-confirm-btn').onclick = function() {
+        const productId = modal.dataset.productId;
+        if (productId) {
+            removeFromCart(productId);
+            renderOrderSummary();
+            renderPaymentSummary();
+        }
+        hideDeleteModal();
+    };
+    // Cancel delete
+    document.getElementById('modal-cancel-btn').onclick = hideDeleteModal;
+    // Close (X) button
+    document.getElementById('modal-close-btn').onclick = hideDeleteModal;
+    // Optional: close modal when clicking outside content
+    modal.onclick = function(e) {
+        if (e.target === modal) hideDeleteModal();
+    };
 }
 

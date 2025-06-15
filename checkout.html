@@ -7,7 +7,7 @@
     <title>Storedambwe | CHECKOUT</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+   
 </head>
 <body>
 
@@ -47,6 +47,22 @@
   </div>
 </div>
 <div id="toast" class="toast"></div>
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="modal-close-btn">&times;</span>
+    <div class="modal-body">
+      <i class="fa fa-trash"></i>
+      <h3>Remove Item?</h3>
+      <p>Are you sure you want to remove this item from your saved list?</p>
+      <div class="modal-buttons">
+        <button id="modal-confirm-btn" class="modal-confirm-btn">Delete</button>
+        <button id="modal-cancel-btn" class="modal-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
     <script type="module" src="scripts/checkout.js"></script>
 </body>
 </html>
