@@ -1,11 +1,17 @@
-import { cart, removeFromCart, updateDeliveryOption, updateQuantity, clearCart } from '../cart.js';
+import { cart, removeFromCart, updateDeliveryOption, updateQuantity, clearCart, toggleDeleteButton } from '../cart.js';
 import { getProduct } from '../data.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 import dayjs from '../../package/esm/index.js';
 import { deliveryOptions} from '../deliveryOptions.js';
 import { renderPaymentSummary } from './paymentsummary.js';
 
-
+function updateCartQuantityDisplay() {
+    const cartQuantity = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    const cartLink = document.querySelector('.js-return-to-home-link');
+    if (cartLink) {
+        cartLink.innerHTML = `${cartQuantity} item${cartQuantity !== 1 ? 's' : ''}`;
+    }
+}
 
 export function renderOrderSummary() {
     console.log('Cart:', cart); 
@@ -13,66 +19,82 @@ export function renderOrderSummary() {
 
     let cartSummaryHTML = '';
 
-    cart.forEach((cartItem) => {
-    const productId = cartItem.productId;
-    const matchingProduct = getProduct(productId);
-    
-    const postedDate = dayjs(matchingProduct.postedDate);
-    const dateString = postedDate.format('dddd, MMMM D, YYYY');
-
-    cartSummaryHTML += `
-        <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
-                <div class="delivery-date">
-                Posted on: ${dateString}
-                </div>
-
-                <div class="cart-item-details-grid">
-                <img class="product-image"
-                    src="${matchingProduct.image}">
-
-                <div class="cart-item-details">
-                    <div class="product-name">
-                    <a href="view-details.html?id=${matchingProduct.id}">${matchingProduct.name}</a>
-                    </div>
-                    <div class="product-price">
-                    $${formatCurrency(matchingProduct.dollar)}
-                    </div>
-                    <div class="product-quantity">
-
-
-
-                    <!--
-                    <span>
-                        Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
-                    </span>
-                    <span class="update-quantity-link link-primary js-update-link" data-product-id="${matchingProduct.id}">
-                        Update
-                    </span>
-                    <input class="quantity-input js-quantity-input-${matchingProduct.id}">
-                    <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">
-                        Save
-                    </span>
-                    -->
-
-
-                    <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
-                        <i class="fa fa-trash"></i> Delete
-                    </span>
-                    </div>
-                </div>
-
-                <div class="delivery-options">
-                    <div class="delivery-options-title">
-                    Choose a delivery option:
-                    </div>
-                    ${deliveryOptionsHTML(matchingProduct, cartItem)}
-                </div>
+    // Handle empty cart state
+    if (!cart || cart.length === 0) {
+        cartSummaryHTML = `
+            <div class="no-products-message">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-off" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#007bff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M7 10h14l-1.5 9h-11z" />
+                  <path d="M3 3l18 18" />
+                </svg>
+                <div class="message">
+                   You dont have saved items in your cart. Start adding some products
                 </div>
             </div>
+        `;
+    } else {
+        cart.forEach((cartItem) => {
+            const productId = cartItem.productId;
+            const matchingProduct = getProduct(productId);
+            
+            const postedDate = dayjs(matchingProduct.postedDate);
+            const dateString = postedDate.format('dddd, MMMM D, YYYY');
 
-                        
-    `;
-    });
+            cartSummaryHTML += `
+                <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+                        <div class="delivery-date">
+                        Posted on: ${dateString}
+                        </div>
+
+                        <div class="cart-item-details-grid">
+                        <img class="product-image"
+                            src="${matchingProduct.image}">
+
+                        <div class="cart-item-details">
+                            <div class="product-name">
+                            <a href="view-details.html?id=${matchingProduct.id}">${matchingProduct.name}</a>
+                            </div>
+                            <div class="product-price">
+                            $${formatCurrency(matchingProduct.dollar)}
+                            </div>
+                            <div class="product-quantity">
+
+
+
+                            <!--
+                            <span>
+                                Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
+                            </span>
+                            <span class="update-quantity-link link-primary js-update-link" data-product-id="${matchingProduct.id}">
+                                Update
+                            </span>
+                            <input class="quantity-input js-quantity-input-${matchingProduct.id}">
+                            <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">
+                                Save
+                            </span>
+                            -->
+
+
+                            <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
+                                <i class="fa fa-trash"></i> Delete
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="delivery-options">
+                            <div class="delivery-options-title">
+                            Choose a delivery option:
+                            </div>
+                            ${deliveryOptionsHTML(matchingProduct, cartItem)}
+                        </div>
+                        </div>
+                    </div>
+
+                            
+            `;
+        });
+    }
 
     function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
@@ -126,6 +148,55 @@ export function renderOrderSummary() {
     console.log('Order summary element:', element); // Debug element existence
     if (element) {
         element.innerHTML = cartSummaryHTML;
+        
+        // Update button visibility
+        toggleDeleteButton();
+        updateCartQuantityDisplay(); // Update cart quantity display
+        
+        // Only attach event listeners if cart has items
+        if (cart.length > 0) {
+            document.querySelectorAll('.js-update-link')
+            .forEach((link) => {
+                link.addEventListener('click', () => {
+                    const productId = link.dataset.productId;
+                    const container = document.querySelector(
+                    `.js-cart-item-container-${productId}`
+                    );
+                    container.classList.remove('is-editing-quantity');
+
+                    updateQuantity();
+                });
+            });
+
+
+            document.querySelectorAll('.js-delete-link')
+            .forEach((link) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const productId = link.dataset.productId;
+                    // Show modal and store productId to delete
+                    showDeleteModal(productId);
+                });
+            });
+
+
+            let cartQuantity = 0;
+
+            cart.forEach((cartItem) => {
+            cartQuantity += cartItem.quantity;
+            });
+
+            document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} items`;
+
+            document.querySelectorAll('.js-delivery-option').forEach((element) => {
+                element.addEventListener('click', () => {
+                    const {productId, deliveryOptionId} = element.dataset;
+                updateDeliveryOption(productId, deliveryOptionId);
+                renderOrderSummary();
+                renderPaymentSummary();
+                });
+            });
+        }
     } else {
         console.error('Order summary element not found!');
     }
@@ -158,6 +229,7 @@ export function renderOrderSummary() {
 
       updateQuantity(productId, newQuantity);
 */
+/*
  document.querySelectorAll('.js-update-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
@@ -200,8 +272,9 @@ document.querySelector('.js-return-to-home-link')
         renderPaymentSummary();
         });
     });
+    */
 
-    
+
 }
 
 // Modal logic for delete confirmation
@@ -245,6 +318,7 @@ if (modal) {
         
         renderOrderSummary();
         renderPaymentSummary();
+        updateCartQuantityDisplay(); // Update cart quantity after deletion
         hideDeleteModal();
     };
     

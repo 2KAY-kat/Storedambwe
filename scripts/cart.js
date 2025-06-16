@@ -102,3 +102,10 @@ export function clearCart() {
     saveToStorage();
     showToast(TOAST_MESSAGES.REMOVED_ALL_ITEMS);
 }
+
+export function toggleDeleteButton() {
+    const deleteButton = document.getElementById('clear-cart-btn');
+    if (deleteButton) {
+        deleteButton.style.display = cart.length > 0 ? 'inline-block' : 'none';
+    }
+}

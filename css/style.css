@@ -1524,6 +1524,10 @@ body.login-page {
     to { opacity: 1; transform: scale(1);}
 }
 
+.message {
+  color: var(--text-color);
+  font-weight: 700;
+}
 /* Modal styles */
 .modal {
   position: fixed;
