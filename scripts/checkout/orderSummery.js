@@ -48,18 +48,18 @@ export function renderOrderSummary() {
                         </div>
 
                         <div class="cart-item-details-grid">
+                         <a href="view-details.html?id=${matchingProduct.id}">
                         <img class="product-image"
                             src="${matchingProduct.image}">
 
                         <div class="cart-item-details">
                             <div class="product-name">
-                            <a href="view-details.html?id=${matchingProduct.id}">${matchingProduct.name}</a>
+                           ${matchingProduct.name}</a>
                             </div>
                             <div class="product-price">
-                            $${formatCurrency(matchingProduct.dollar)}
+                            MK ${formatCurrency(matchingProduct.dollar)}
                             </div>
                             <div class="product-quantity">
-
 
 
                             <!--
@@ -84,10 +84,17 @@ export function renderOrderSummary() {
 
                         <div class="delivery-options">
                             <div class="delivery-options-title">
-                            Choose a delivery option:
+                            <h4 class="saved-list-descriptionH3">Description <i class="fa fa-info-circle" style="color: #6d2b2b"></i> </h4>
                             </div>
-                            ${deliveryOptionsHTML(matchingProduct, cartItem)}
+
+                            <div class="saved-list-description">
+                            <p class="saved-list-descriptionP">
+                            ${matchingProduct.description}
+
+                            </p>
+                            </div>
                         </div>
+                        
                         </div>
                     </div>
 
@@ -96,6 +103,8 @@ export function renderOrderSummary() {
         });
     }
 
+
+    /***
     function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
 
@@ -127,7 +136,7 @@ export function renderOrderSummary() {
             <div>
                 <div class="delivery-option-date">
                     ${dateString}
-                </div>
+                </div> 
                 <div class="delivery-option-time">
                     Estimated delivery: ${hoursText}
                 </div>
@@ -142,6 +151,8 @@ export function renderOrderSummary() {
     return html;
 }
 
+
+***/
 
 
     const element = document.querySelector('.js-order-summary');

@@ -9,13 +9,14 @@
   --input-register-color: #4e4e4e;
   --input-icon-color: #126ccc;
   --main-color: #0056b3;
+  --main-description-color: #002a46;
   --text-color: #333;
   --nav-background: #6e6e6e;
   --link-hover: #ddd;
   --text-mix-color: #fff;
   --random-color: #ddd;
   --footer-random: #fdfddf;
-  --price-color: #333 /*#834343  old tricky reish color was an awesome ride bruh*/;
+  --price-color: #834343 /*#834343  old tricky reish color was an awesome ride bruh*/;
   --fades: background-color 0.3s ease;
   --success-color: #008000;
   --error-color: #6d2b2b;
@@ -859,7 +860,7 @@ input {
 .product-price {
   color: var(--price-color);
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .product-quantity .link-primary {
@@ -1002,7 +1003,7 @@ select {
 }
 
 .link-primary:hover {
-  color: var(--random-color);
+  color: var(--main-description-color);
 }
 
 /* Styles for dropdown selectors. */
@@ -1473,6 +1474,17 @@ body.login-page {
   font-size: 1.2rem;
 }
 
+.saved-list-descriptionH3 {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+p.saved-list-descriptionP {
+  color: var(--main-description-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
 
 .no-products-message {
     display: flex;
