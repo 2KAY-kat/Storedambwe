@@ -14,7 +14,7 @@ function updateCartQuantityDisplay() {
 }
 
 export function renderOrderSummary() {
-    console.log('Cart:', cart); 
+    console.log('Cart:', cart);
     /*console.log('Delivery Options:', deliveryOptions); */
 
     let cartSummaryHTML = '';
@@ -37,7 +37,7 @@ export function renderOrderSummary() {
         cart.forEach((cartItem) => {
             const productId = cartItem.productId;
             const matchingProduct = getProduct(productId);
-            
+
             const postedDate = dayjs(matchingProduct.postedDate);
             const dateString = postedDate.format('dddd, MMMM D, YYYY');
 
@@ -57,7 +57,7 @@ export function renderOrderSummary() {
                            ${matchingProduct.name}</a>
                             </div>
                             <div class="product-price">
-                            MK ${formatCurrency(matchingProduct.dollar)}
+                MK ${formatCurrency(matchingProduct.dollar)}
                             </div>
                             <div class="product-quantity">
 
@@ -159,131 +159,131 @@ export function renderOrderSummary() {
     console.log('Order summary element:', element); // Debug element existence
     if (element) {
         element.innerHTML = cartSummaryHTML;
-        
+
         // Update button visibility
         toggleDeleteButton();
         updateCartQuantityDisplay(); // Update cart quantity display
-        
+
         // Only attach event listeners if cart has items
         if (cart.length > 0) {
             document.querySelectorAll('.js-update-link')
-            .forEach((link) => {
-                link.addEventListener('click', () => {
-                    const productId = link.dataset.productId;
-                    const container = document.querySelector(
-                    `.js-cart-item-container-${productId}`
-                    );
-                    container.classList.remove('is-editing-quantity');
+                .forEach((link) => {
+                    link.addEventListener('click', () => {
+                        const productId = link.dataset.productId;
+                        const container = document.querySelector(
+                            `.js-cart-item-container-${productId}`
+                        );
+                        container.classList.remove('is-editing-quantity');
 
-                    updateQuantity();
+                        updateQuantity();
+                    });
                 });
-            });
 
 
             document.querySelectorAll('.js-delete-link')
-            .forEach((link) => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const productId = link.dataset.productId;
-                    // Show modal and store productId to delete
-                    showDeleteModal(productId);
+                .forEach((link) => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const productId = link.dataset.productId;
+                        // Show modal and store productId to delete
+                        showDeleteModal(productId);
+                    });
                 });
-            });
 
 
             let cartQuantity = 0;
 
             cart.forEach((cartItem) => {
-            cartQuantity += cartItem.quantity;
+                cartQuantity += cartItem.quantity;
             });
 
             document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} items`;
 
             document.querySelectorAll('.js-delivery-option').forEach((element) => {
                 element.addEventListener('click', () => {
-                    const {productId, deliveryOptionId} = element.dataset;
-                updateDeliveryOption(productId, deliveryOptionId);
-                renderOrderSummary();
-                renderPaymentSummary();
+                    const { productId, deliveryOptionId } = element.dataset;
+                    updateDeliveryOption(productId, deliveryOptionId);
+                    renderOrderSummary();
+                    renderPaymentSummary();
                 });
             });
         }
     } else {
         console.error('Order summary element not found!');
     }
-/*
-    document.querySelectorAll('.js-update-link')
-  .forEach((link) => {
-    link.addEventListener('click', () => {
-      const productId = link.dataset.productId;
-      const container = document.querySelector(
-        `.js-cart-item-container-${productId}`
-      );
-      container.classList.add('is-editing-quantity');
-    });
-  });
-
-  document.querySelectorAll('.js-save-link')
-  .forEach((link) => {
-    link.addEventListener('click', () => {
-      const productId = link.dataset.productId;
-
-      const quantityInput = document.querySelector(
-        `.js-quantity-input-${productId}`
-      );
-      const newQuantity = Number(quantityInput.value);
-
-      if (newQuantity < 0 || newQuantity >= 1000) {
-        alert('Quantity must be at least 0 and less than 1000');
-        return;
-      }
-
-      updateQuantity(productId, newQuantity);
-*/
-/*
- document.querySelectorAll('.js-update-link')
-  .forEach((link) => {
-    link.addEventListener('click', () => {
-      const productId = link.dataset.productId;
-      const container = document.querySelector(
-        `.js-cart-item-container-${productId}`
-      );
-      container.classList.remove('is-editing-quantity');
-
-      updateQuantity();
-    });
-  });
-
-
-    document.querySelectorAll('.js-delete-link')
-    .forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const productId = link.dataset.productId;
-            // Show modal and store productId to delete
-            showDeleteModal(productId);
+    /*
+        document.querySelectorAll('.js-update-link')
+      .forEach((link) => {
+        link.addEventListener('click', () => {
+          const productId = link.dataset.productId;
+          const container = document.querySelector(
+            `.js-cart-item-container-${productId}`
+          );
+          container.classList.add('is-editing-quantity');
         });
-    });
-
-
-    let cartQuantity = 0;
-
-cart.forEach((cartItem) => {
-  cartQuantity += cartItem.quantity;
-});
-
-document.querySelector('.js-return-to-home-link')
-  .innerHTML = `${cartQuantity} items`;
-
-    document.querySelectorAll('.js-delivery-option').forEach((element) => {
-        element.addEventListener('click', () => {
-            const {productId, deliveryOptionId} = element.dataset;
-        updateDeliveryOption(productId, deliveryOptionId);
-        renderOrderSummary();
-        renderPaymentSummary();
-        });
-    });
+      });
+    
+      document.querySelectorAll('.js-save-link')
+      .forEach((link) => {
+        link.addEventListener('click', () => {
+          const productId = link.dataset.productId;
+    
+          const quantityInput = document.querySelector(
+            `.js-quantity-input-${productId}`
+          );
+          const newQuantity = Number(quantityInput.value);
+    
+          if (newQuantity < 0 || newQuantity >= 1000) {
+            alert('Quantity must be at least 0 and less than 1000');
+            return;
+          }
+    
+          updateQuantity(productId, newQuantity);
     */
+    /*
+     document.querySelectorAll('.js-update-link')
+      .forEach((link) => {
+        link.addEventListener('click', () => {
+          const productId = link.dataset.productId;
+          const container = document.querySelector(
+            `.js-cart-item-container-${productId}`
+          );
+          container.classList.remove('is-editing-quantity');
+    
+          updateQuantity();
+        });
+      });
+    
+    
+        document.querySelectorAll('.js-delete-link')
+        .forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = link.dataset.productId;
+                // Show modal and store productId to delete
+                showDeleteModal(productId);
+            });
+        });
+    
+    
+        let cartQuantity = 0;
+    
+    cart.forEach((cartItem) => {
+      cartQuantity += cartItem.quantity;
+    });
+    
+    document.querySelector('.js-return-to-home-link')
+      .innerHTML = `${cartQuantity} items`;
+    
+        document.querySelectorAll('.js-delivery-option').forEach((element) => {
+            element.addEventListener('click', () => {
+                const {productId, deliveryOptionId} = element.dataset;
+            updateDeliveryOption(productId, deliveryOptionId);
+            renderOrderSummary();
+            renderPaymentSummary();
+            });
+        });
+        */
 
 
 }
@@ -293,7 +293,7 @@ function showDeleteModal(productId = null) {
     const modal = document.getElementById('delete-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalMessage = document.getElementById('modal-message');
-    
+
     if (productId) {
         modalTitle.textContent = 'Remove Item?';
         modalMessage.textContent = 'Are you sure you want to remove this item from your saved list?';
@@ -301,7 +301,7 @@ function showDeleteModal(productId = null) {
         modalTitle.textContent = 'Delete All Items?';
         modalMessage.textContent = 'Are you sure you want to remove all items from your saved list?';
     }
-    
+
     modal.style.display = 'flex';
     modal.dataset.productId = productId || '';
     modal.dataset.isDeleteAll = !productId;
@@ -317,35 +317,35 @@ function hideDeleteModal() {
 const modal = document.getElementById('delete-modal');
 if (modal) {
     // Confirm delete
-    document.getElementById('modal-confirm-btn').onclick = function() {
+    document.getElementById('modal-confirm-btn').onclick = function () {
         const productId = modal.dataset.productId;
         const isDeleteAll = modal.dataset.isDeleteAll === 'true';
-        
+
         if (isDeleteAll) {
             clearCart();
         } else if (productId) {
             removeFromCart(productId);
         }
-        
+
         renderOrderSummary();
         renderPaymentSummary();
         updateCartQuantityDisplay(); // Update cart quantity after deletion
         hideDeleteModal();
     };
-    
+
     // Add Delete All button listener
     document.getElementById('clear-cart-btn')?.addEventListener('click', () => {
         if (cart.length > 0) {
             showDeleteModal();
         }
     });
-    
+
     // Cancel delete
     document.getElementById('modal-cancel-btn').onclick = hideDeleteModal;
     // Close (X) button
     document.getElementById('modal-close-btn').onclick = hideDeleteModal;
     // Optional: close modal when clicking outside content
-    modal.onclick = function(e) {
+    modal.onclick = function (e) {
         if (e.target === modal) hideDeleteModal();
     };
 }
