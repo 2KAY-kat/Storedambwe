@@ -2,7 +2,7 @@ import { cart, removeFromCart, updateDeliveryOption, updateQuantity, clearCart, 
 import { getProduct } from '../data.js';
 import { formatCurrency } from '../utilities/calculate_cash.js';
 import dayjs from '../../package/esm/index.js';
-import { deliveryOptions} from '../deliveryOptions.js';
+//import { deliveryOptions} from '../deliveryOptions.js';
 import { renderPaymentSummary } from './paymentsummary.js';
 
 function updateCartQuantityDisplay() {
@@ -104,7 +104,7 @@ export function renderOrderSummary() {
     }
 
 
-    /***
+    /**
     function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
 
@@ -152,7 +152,7 @@ export function renderOrderSummary() {
 }
 
 
-***/
+**/
 
 
     const element = document.querySelector('.js-order-summary');

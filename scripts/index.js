@@ -25,9 +25,10 @@ header.forEach((header) => {
         <div class="nav-login-cart">
             <a href="${header.link}"><i class="fa fa-shopping-cart"></i></a>
             <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>
-            <div class="user-profile">
-                <a href="dashboard/index.html"><img src="images/pear.jpg" alt="" /> </a>
-            </div>
+            
+             <a href="dashboard/index.html">
+               <div class="fa-solid fa-user"> </div>
+            </a>
         </div>
     `;
 })

@@ -66,6 +66,7 @@ export function removeFromCart(productId) {
     }
 }
 
+/** */
 export function updateDeliveryOption(productId, deliveryOptionId) {
     let matchingItem;
 
@@ -82,7 +83,6 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
 
 }
 
-
 export function updateQuantity(productId, newQuantity) {
     let matchingItem;
   
@@ -96,6 +96,7 @@ export function updateQuantity(productId, newQuantity) {
   
     saveToStorage();
 }
+
 
 export function clearCart() {
     cart = [];
