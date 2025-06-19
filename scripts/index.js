@@ -13,8 +13,9 @@ header.forEach((header) => {
     headerHTML += `
 
         <div class="nav-logo">
+            <a href="index.html">
             <img class="logo-navlogo-nav" src="${header.image}" alt="" />
-            <p class="dambwe">${header.name}</p>
+            <p class="dambwe">${header.name}</p></a>
         </div>
            <!--
         <ul class="nav-menu">
@@ -25,8 +26,8 @@ header.forEach((header) => {
         <div class="nav-login-cart">
             <a href="${header.link}"><i class="fa fa-shopping-cart"></i></a>
             <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>
-            
-             <a href="dashboard/index.html">
+            <div class="searchIn fa-solid fa-search"> </div>
+            <a href="dashboard/index.html">
                <div class="fa-solid fa-user"> </div>
             </a>
         </div>
