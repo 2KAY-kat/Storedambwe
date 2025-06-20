@@ -202,15 +202,17 @@ i.password-mismatch-check {
 /* Responsive styles for auth pages */
 @media (max-width: 600px) {
     .login-container {
-        align-items: flex-start;
-        padding: 0 28px;
-        height: auto;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        padding: 0 8px;
         min-height: 100vh;
+        height: auto;
     }
 
     .login-box {
         margin: 32px 0;
-        padding: 2rem;
+        padding: 1.5rem;
         max-width: 100%;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0,0,0,0.08);
