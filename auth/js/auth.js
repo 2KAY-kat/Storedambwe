@@ -86,3 +86,11 @@ function checkPasswordMatch() {
         mismatchIcon.style.display = 'inline-block';
     }
 }
+
+
+document.getElementById('login-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // You can add your own checks here if you want
+    localStorage.setItem('isLoggedIn', 'true');
+    window.location.href = '../dashboard/index.html'; // Adjust path if needed
+});

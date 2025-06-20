@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="css/dashboard-styles.css">
 </head>
 <body>
+    <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = '../auth/login.html'; // Corrected path
+        }
+    </script>
 
     <div class="dashboard-header">
         <div class="header-content">
@@ -62,5 +67,6 @@
                 </div>
             </div>
         </div>
+    </div>
 </body>
 </html>
