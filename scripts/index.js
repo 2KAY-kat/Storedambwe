@@ -12,17 +12,14 @@ let heroHTML = '';
 header.forEach((header) => {
     headerHTML += `
 
+    <a href="index.html">
         <div class="nav-logo">
-            <a href="index.html">
+            
             <img class="logo-navlogo-nav" src="${header.image}" alt="" />
-            <p class="dambwe">${header.name}</p></a>
+            <p class="dambwe">${header.name}</p>
         </div>
-           <!--
-        <ul class="nav-menu">
-         <input type="search" placeholder="Search for products...">
-            <button class="btn1" type="submit">Search</button>
-        </ul>
-        --->
+        </a>
+           
         <div class="nav-login-cart">
             <a href="${header.link}"><i class="fa fa-shopping-cart"></i></a>
             <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>

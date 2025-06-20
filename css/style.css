@@ -192,11 +192,15 @@ input {
   border-radius: 10px;
   background: #ff4141;
 }
-
 .nav-login-cart {
   display: flex;
   align-items: center;
-  gap: 45px;
+  gap: 40px;
+}
+
+.nav-login-cart > *:last-child {
+  margin-right: 0 !important;
+  gap: 0 !important;
 }
 
 .nav-login-cart a {
@@ -231,7 +235,7 @@ input {
   justify-content: center;
   align-items: center;
   margin-top: -35px;
-  margin-left: -55px;
+  margin-left: -50px;
   border-radius: 11px;
   font-size: 14px;
   background: var(--main-color);
