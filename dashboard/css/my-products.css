@@ -22,18 +22,6 @@
         rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.light:root {
-    --app-bg: #fff;
-    --sidebar: #f3f6fd;
-    --app-content-secondary-color: #f3f6fd;
-    --app-content-main-color: #1f1c2e;
-    --sidebar-link: #1f1c2e;
-    --sidebar-hover-link: rgba(195, 207, 244, 0.5);
-    --sidebar-active-link: rgba(195, 207, 244, 1);
-    --sidebar-main-color: #1f1c2e;
-    --filter-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
 body,
 html {
     margin: 0;
@@ -134,27 +122,6 @@ body {
     .sidebar {
         display: none;
     }
-}
-
-.mode-switch {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    color: var(--app-content-main-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-.mode-switch .moon {
-    fill: var(--app-content-main-color);
-}
-
-.mode-switch.active .moon {
-    fill: none;
 }
 
 .account-info {
@@ -294,11 +261,6 @@ body {
     transition: 0.2s;
 }
 
-.light .search-bar {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231f1c2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search' %3E%3Ccircle cx='11' cy='11' r='8' /%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65' /%3E%3C/svg%3E");
-
-}
-
 .search-bar:placeholder {
     color: var(--app-content-main-color);
 }
@@ -408,11 +370,6 @@ body {
 
 .filter-menu select option {
     font-size: 14px;
-}
-
-.light .filter-menu select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231f1c2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down' %3E%3Cpolyline points='6 9 12 15 18 9' /%3E%3C/svg%3E");
-
 }
 
 .filter-menu select:hover {
