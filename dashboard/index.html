@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storedambwe | DASHBOARD</title>
     <link rel="stylesheet" href="./css/my-products.css">
-    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -21,38 +21,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="sidebar-list">
-                <li class="sidebar-list-item active">
-                    <a href="#" data-section="home">
-                        <i class="fa-solid fa-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="sidebar-list-item">
-                    <a href="#" data-section="products">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span>Products</span>
-                    </a>
-                </li>
-                <li class="sidebar-list-item">
-                    <a href="#" data-section="statistics">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        <span>Statistics</span>
-                    </a>
-                </li>
-                <li class="sidebar-list-item">
-                    <a href="#" data-section="inbox">
-                        <i class="fa-solid fa-inbox"></i>
-                        <span>Inbox</span>
-                    </a>
-                </li>
-                <li class="sidebar-list-item">
-                    <a href="#" data-section="notifications">
-                        <i class="fa-solid fa-bell"></i>
-                        <span>Notifications</span>
-                    </a>
-                </li>
-            </ul>
+            <ul class="sidebar-list"></ul>
             <div class="account-info">
                 <a href="#" data-section="profile" class="nav-icon">
                     <div class="account-info-name"><span id="username"></span></div>
@@ -62,121 +31,11 @@
                 </button>
             </div>
         </div>
-        <div class="app-content">
-            <!-- Home Section -->
-            <div class="dashboard-section" id="section-home">
-                <div class="app-content-header">
-                    <h1 class="app-content-headerText">Dashboard Home</h1>
-                </div>
-                <div style="padding: 32px; color: var(--app-content-main-color);">
-                    <h2>Welcome to your dashboard!</h2>
-                    <p>Select a section from the sidebar to get started.</p>
-                </div>
-            </div>
-            <!-- Products Section -->
-            <div class="dashboard-section" id="section-products" style="display:none;">
-                <div class="app-content-header">
-                    <h1 class="app-content-headerText">Products</h1>
-                    <button class="app-content-headerButton">Add Product</button>
-                </div>
-                <div class="app-content-actions">
-                    <input class="search-bar" placeholder="Search..." type="text">
-                    <div class="app-content-actions-wrapper">
-                        <div class="filter-button-wrapper">
-                            <button class="action-button filter jsFilter"><span>Filter</span>
-                                <i class="fa-solid fa-filter"></i>
-                            </button>
-                            <div class="filter-menu">
-                                <label>Category</label>
-                                <select>
-                                    <option>All Categories</option>
-                                    <option>Furniture</option>
-                                    <option>Decoration</option>
-                                    <option>Kitchen</option>
-                                    <option>Bathroom</option>
-                                </select>
-                                <label>Status</label>
-                                <select>
-                                    <option>All Status</option>
-                                    <option>Active</option>
-                                    <option>Disabled</option>
-                                </select>
-                                <div class="filter-menu-buttons">
-                                    <button class="filter-button reset">
-                                        Reset
-                                    </button>
-                                    <button class="filter-button apply">
-                                        Apply
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="action-button list active" title="List View">
-                            <i class="fa-solid fa-list"></i>
-                        </button>
-                        <button class="action-button grid" title="Grid View">
-                            <i class="fa-solid fa-th-large"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="products-area-wrapper tableView">
-                    <!-- ...copy all .products-header and .products-row from my-products.html... -->
-                    <!-- ...existing code from my-products.html products table... -->
-                    <!-- ...existing code... -->
-                </div>
-            </div>
-            <!-- Placeholder for other sections -->
-            <div class="dashboard-section" id="section-statistics" style="display:none;">
-                <div class="app-content-header">
-                    <h1 class="app-content-headerText">Statistics</h1>
-                </div>
-                <div style="padding: 32px; color: var(--app-content-main-color);">
-                    <p>Statistics content goes here.</p>
-                </div>
-            </div>
-            <div class="dashboard-section" id="section-inbox" style="display:none;">
-                <div class="app-content-header">
-                    <h1 class="app-content-headerText">Inbox</h1>
-                </div>
-                <div style="padding: 32px; color: var(--app-content-main-color);">
-                    <p>Inbox content goes here.</p>
-                </div>
-            </div>
-            <div class="dashboard-section" id="section-notifications" style="display:none;">
-                <div class="app-content-header">
-                    <h1 class="app-content-headerText">Notifications</h1>
-                </div>
-                <div style="padding: 32px; color: var(--app-content-main-color);">
-                    <p>Notifications content goes here.</p>
-                </div>
-            </div>
-        </div>
+        <div class="app-content"></div>
     </div>
 </body>
-<script src="./js/dashboard.js"></script>
+<script type="module" src="./js/dashboard.js"></script>
 <script src="./js/my-products.js"></script>
 <script src="./js/logout.js"></script>
 <script src="./js/check-session.js"></script>
-<script>
-// filepath: c:\Users\Katoya\Storedambwe\dashboard\index.html (inline script)
-// State management for dashboard sections
-document.querySelectorAll('.sidebar-list-item a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Remove active from all
-        document.querySelectorAll('.sidebar-list-item').forEach(li => li.classList.remove('active'));
-        this.parentElement.classList.add('active');
-        // Hide all sections
-        document.querySelectorAll('.dashboard-section').forEach(sec => sec.style.display = 'none');
-        // Show selected section
-        const section = this.getAttribute('data-section');
-        if (section) {
-            const el = document.getElementById('section-' + section);
-            if (el) el.style.display = '';
-        }
-    });
-});
-// Default: show home
-document.getElementById('section-home').style.display = '';
-</script>
 </html>

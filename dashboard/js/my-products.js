@@ -1,25 +1,36 @@
-document.querySelector(".jsFilter").addEventListener("click", function () {
-    document.querySelector(".filter-menu").classList.toggle("active");
-});
+// Use event delegation for dynamic dashboard
+document.addEventListener("click", function (e) {
+    // Filter button
+    if (e.target.closest(".jsFilter")) {
+        const filterMenu = e.target.closest(".app-content-actions").querySelector(".filter-menu");
+        if (filterMenu) filterMenu.classList.toggle("active");
+    }
 
-document.querySelector(".grid").addEventListener("click", function () {
-    document.querySelector(".list").classList.remove("active");
-    document.querySelector(".grid").classList.add("active");
-    document.querySelector(".products-area-wrapper").classList.add("gridView");
-    document
-        .querySelector(".products-area-wrapper")
-        .classList.remove("tableView");
-});
+    // List view button
+    if (e.target.closest(".action-button.list")) {
+        const section = e.target.closest(".dashboard-section") || document;
+        const listBtn = section.querySelector(".action-button.list");
+        const gridBtn = section.querySelector(".action-button.grid");
+        const wrapper = section.querySelector(".products-area-wrapper");
+        if (listBtn && gridBtn && wrapper) {
+            listBtn.classList.add("active");
+            gridBtn.classList.remove("active");
+            wrapper.classList.remove("gridView");
+            wrapper.classList.add("tableView");
+        }
+    }
 
-document.querySelector(".list").addEventListener("click", function () {
-    document.querySelector(".list").classList.add("active");
-    document.querySelector(".grid").classList.remove("active");
-    document.querySelector(".products-area-wrapper").classList.remove("gridView");
-    document.querySelector(".products-area-wrapper").classList.add("tableView");
-});
-
-var modeSwitch = document.querySelector('.mode-switch');
-modeSwitch.addEventListener('click', function () {
-    document.documentElement.classList.toggle('light');
-    modeSwitch.classList.toggle('active');
+    // Grid view button
+    if (e.target.closest(".action-button.grid")) {
+        const section = e.target.closest(".dashboard-section") || document;
+        const listBtn = section.querySelector(".action-button.list");
+        const gridBtn = section.querySelector(".action-button.grid");
+        const wrapper = section.querySelector(".products-area-wrapper");
+        if (listBtn && gridBtn && wrapper) {
+            gridBtn.classList.add("active");
+            listBtn.classList.remove("active");
+            wrapper.classList.add("gridView");
+            wrapper.classList.remove("tableView");
+        }
+    }
 });
