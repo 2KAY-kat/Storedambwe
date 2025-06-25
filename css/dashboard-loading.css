@@ -19,6 +19,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 90vw;
+  width: 400px;
+  box-sizing: border-box;
 }
 .dashboard-loading-content .loader {
   margin-bottom: 1rem;
@@ -27,4 +30,18 @@
   font-size: 1.2rem;
   color: #333;
   text-align: center;
+  word-break: break-word;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .dashboard-loading-content {
+    padding: 1.2rem 1rem;
+    width: 95vw;
+    min-width: 0;
+    max-width: 98vw;
+  }
+  .dashboard-loading-message {
+    font-size: 1rem;
+  }
 }
