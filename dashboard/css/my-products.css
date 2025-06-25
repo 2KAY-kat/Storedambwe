@@ -93,12 +93,16 @@ body {
     padding: 10px 16px;
     color: var(--sidebar-link);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px; /* Consistent font size */
     line-height: 24px;
+    gap: 12px; /* Consistent spacing between icon and text */
 }
 
 .sidebar-list-item svg {
-    margin-right: 8px;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    /* margin-right removed, using gap instead */
 }
 
 .sidebar-list-item:hover {
@@ -673,4 +677,102 @@ body {
 
 .gridView .cell-label {
     opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        max-width: 100vw;
+        height: 56px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000; /* Always on top */
+        border-radius: 0;
+        padding: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        background: var(--sidebar);
+        display: flex !important; /* Ensure sidebar is visible on mobile */
+    }
+    .sidebar-header {
+        display: none;
+    }
+    .sidebar-list {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        height: 56px;
+        background: transparent;
+    }
+    .sidebar-list-item {
+        margin-bottom: 0;
+        flex: 1;
+        text-align: center;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sidebar-list-item a {
+        justify-content: center;
+        padding: 0;
+        font-size: 15px;
+        gap: 6px;
+        height: 56px;
+        width: 100%;
+        color: var(--sidebar-link);
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        transition: background 0.2s, color 0.2s, border-bottom 0.2s;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        position: relative;
+    }
+    .sidebar-list-item a:active,
+    .sidebar-list-item a:focus {
+        color: var(--action-color);
+        background: var(--sidebar-hover-link);
+        outline: none;
+    }
+    .sidebar-list-item.active a,
+    .sidebar-list-item a:hover {
+        color: var(--action-color);
+        background: var(--sidebar-hover-link);
+        border-bottom: 3px solid var(--action-color);
+    }
+    .sidebar-list-item.active,
+    .sidebar-list-item:hover {
+        background: none;
+    }
+    .sidebar-list-item a i,
+    .sidebar-list-item a svg {
+        color: var(--action-color);
+        font-size: 18px;
+        margin-bottom: 2px;
+        display: block;
+    }
+    .sidebar-list-item a span {
+        display: block;
+        font-size: 12px;
+        margin-top: 2px;
+        color: var(--sidebar-link);
+    }
+    .sidebar-list-item.active a span,
+    .sidebar-list-item a:hover span {
+        color: var(--action-color);
+    }
+    .account-info {
+        display: none;
+    }
+    .app-content {
+        margin-top: 56px;
+    }
 }
