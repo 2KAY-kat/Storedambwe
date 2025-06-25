@@ -776,3 +776,20 @@ body {
         margin-top: 56px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .sidebar-list-item a span {
+        display: none;
+    }
+    .sidebar-list-item a i,
+    .sidebar-list-item a svg {
+        display: block;
+        font-size: 20px;
+        margin: 0 auto;
+        color: var(--sidebar-link);
+    }
+    .sidebar-list-item.active a i,
+    .sidebar-list-item a:hover i {
+        color: var(--action-color);
+    }
+}
