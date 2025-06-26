@@ -151,7 +151,7 @@ body {
 }
 
 .account-info-name {
-    font-size: 14px;
+    font-size: 20px;
     color: var(--sidebar-main-color);
     margin: 0 8px;
     overflow: hidden;
@@ -679,6 +679,10 @@ body {
     opacity: 0.6;
 }
 
+.fa-user {
+    font-size: 20px;
+}
+
 @media screen and (max-width: 768px) {
     .sidebar {
         position: fixed;
@@ -770,10 +774,10 @@ body {
         color: var(--action-color);
     }
     .account-info {
-        display: none;
+        display: block;
     }
     .app-content {
-        margin-top: 56px;
+        margin-top: 40px;
     }
 }
 
