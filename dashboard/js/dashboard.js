@@ -1,34 +1,8 @@
-import { products, header, hero } from '../../scripts/data.js';
+import { sidebarItems } from './dashboard-data.js';
+import { products } from '../../scripts/data.js';
 import { formatCurrency } from '../../scripts/utilities/calculate_cash.js';
 
 // Sidebar and section definitions
-const sidebarItems = [
-    { 
-        name: 'Home', 
-        icon: ' fa-house', 
-        section: 'home' 
-    },
-    { 
-        name: 'Products', 
-        icon: ' fa-bag-shopping', 
-        section: 'products' 
-    },
-    { 
-        name: 'Statistics', 
-        icon: ' fa-chart-pie', 
-        section: 'statistics' 
-    },
-    { 
-        name: 'Inbox', 
-        icon: ' fa-inbox', 
-        section: 'inbox' 
-    },
-    { 
-        name: 'Notifications', 
-        icon: ' fa-bell', 
-        section: 'notifications' 
-    }
-];
 
 // Extract unique categories from products
 const productCategories = Array.from(new Set(products.map(p => p.category)));
