@@ -314,6 +314,7 @@ body {
 }
 
 .filter-menu {
+    display: none;
     background-color: var(--app-content-secondary-color);
     position: absolute;
     top: calc(100% + 16px);
@@ -326,6 +327,12 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: 0.2s;
+}
+
+.filter-menu.show {
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .filter-menu:before {

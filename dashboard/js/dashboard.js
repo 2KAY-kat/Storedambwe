@@ -2,8 +2,6 @@ import { sidebarItems } from './dashboard-data.js';
 import { products } from '../../scripts/data.js';
 import { formatCurrency } from '../../scripts/utilities/calculate_cash.js';
 
-// Sidebar and section definitions
-
 // Extract unique categories from products
 const productCategories = Array.from(new Set(products.map(p => p.category)));
 productCategories.unshift('All'); // Add 'All' at the start
@@ -39,8 +37,8 @@ const sections = {
                                 ${productsStatus.map(stat => `<option>${stat}</option>`).join('')}
                             </select>
                             <div class="filter-menu-buttons">
-                                <button class="filter-button reset">Reset</button>
-                                <button class="filter-button apply">Apply</button>
+                                <button class="filter-button reset" id="resetFilters">Reset</button>
+                                <button class="filter-button apply" id="applyFilters">Apply</button>
                             </div>
                         </div>
                     </div>
@@ -98,25 +96,18 @@ function renderSections() {
             </div>
         </div>
     `).join('');
+    setupFilterButton(); 
 }
 
-// Remove these lines (they cause the error):
-// document.getElementById('categoryFilter').addEventListener('change', function () {
-//     selectedCategory = this.value;
-//     renderProductsTable();
-// });
+// setting variables for filters
 
-// document.getElementById('statusFilter').addEventListener('change', function () {
-//     selectedStatus = this.value;
-//     renderProductsTable();
-// });
+let selectedCategory = 'All';
+let selectedStatus = 'All';
 
 // Render products table with filtering
 function renderProductsTable() {
     const table = document.getElementById('dashboard-products-table');
-
     if (!table) return;
-    // Always enable vertical scrolling for the products table
     table.style.maxHeight = "400px";
     table.style.overflowY = "auto";
     table.style.display = "block";
@@ -164,6 +155,76 @@ function renderProductsTable() {
     table.innerHTML = filterHTML;
 }
 
+// Hide the filter dropdown menu (toggle class for better compatibility)
+function hideFilterMenu() {
+    const filterMenu = document.querySelector('.filter-menu');
+    if (filterMenu) {
+        filterMenu.classList.remove('show');
+        filterMenu.style.display = ''; // reset inline style if any
+    }
+    const filterBtn = document.querySelector('.jsFilter');
+    if (filterBtn) {
+        filterBtn.classList.remove('active');
+    }
+}
+
+// Show the filter dropdown menu (needed for toggling)
+function showFilterMenu() {
+    const filterMenu = document.querySelector('.filter-menu');
+    if (filterMenu) {
+        filterMenu.classList.add('show');
+        filterMenu.style.display = 'block';
+    }
+    const filterBtn = document.querySelector('.jsFilter');
+    if (filterBtn) {
+        filterBtn.classList.add('active');
+    }
+}
+
+// Setup filter button to toggle menu
+function setupFilterButton() {
+    const oldBtn = document.querySelector('.jsFilter');
+    if (oldBtn) {
+        const newBtn = oldBtn.cloneNode(true);
+        oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+    }
+    const filterBtn = document.querySelector('.jsFilter');
+    if (filterBtn) {
+        filterBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const filterMenu = document.querySelector('.filter-menu');
+            if (filterMenu) {
+                if (filterMenu.classList.contains('show')) {
+                    hideFilterMenu();
+                } else {
+                    showFilterMenu();
+                }
+            }
+        });
+    }
+    // Hide menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const filterMenu = document.querySelector('.filter-menu');
+        if (filterMenu && filterMenu.classList.contains('show')) {
+            if (!filterMenu.contains(e.target) && !e.target.classList.contains('jsFilter')) {
+                hideFilterMenu();
+            }
+        }
+    });
+}
+
+// Add this to update dropdowns and table from localStorage
+function restoreFiltersFromStorage() {
+    const savedCat = localStorage.getItem('dashboardCategory');
+    const savedStatus = localStorage.getItem('dashboardStatus');
+    if (savedCat) selectedCategory = savedCat;
+    if (savedStatus) selectedStatus = savedStatus;
+    const catSelect = document.querySelector('.js-dashboard-category-filter');
+    const statSelect = document.getElementById('statusFilter');
+    if (catSelect && savedCat) catSelect.value = savedCat;
+    if (statSelect && savedStatus) statSelect.value = savedStatus;
+}
+
 // Navigation logic
 function setupSidebarNavigation() {
     document.querySelectorAll('.sidebar-list-item a').forEach(link => {
@@ -177,8 +238,10 @@ function setupSidebarNavigation() {
                 const el = document.getElementById('section-' + section);
                 if (el) el.style.display = '';
                 if (section === 'products') {
+                    restoreFiltersFromStorage();
                     renderProductsTable();
-                    setupProductFilters(); // <-- add this
+                    setupProductFilters();
+                    setupFilterButton(); // <-- Ensure filter button is set up after switching section
                 }
             }
         });
@@ -203,28 +266,77 @@ function setupProductFilters() {
     }
 }
 
-let selectedCategory = 'All';
-let selectedStatus = 'All';
+/* Removed unused setupCategoryFilter and setupStatusFilter functions as their logic is handled in setupProductFilters */
 
 // Initialize dashboard
 function initDashboard() {
     renderSidebar();
     renderSections();
     setupSidebarNavigation();
+    setupFilterButton();
+    // Remove redundant setupCategoryFilter and setupStatusFilter calls
     // Render products table and setup filter if products section is default
     const productsSection = document.getElementById('section-products');
     if (productsSection && productsSection.style.display !== 'none') {
+        setupApplyButton();
+        setupResetButton();
+        restoreFiltersFromStorage();
         renderProductsTable();
-        setupProductFilters(); // <-- add this
+        setupProductFilters();
     }
 }
 
-// Auto-init
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDashboard);
-} else {
-    initDashboard();
+function setupApplyButton() {
+    // Remove previous event listener if any
+    const oldBtn = document.getElementById('applyFilters');
+    if (!oldBtn) return;
+    const newBtn = oldBtn.cloneNode(true);
+    oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+
+    newBtn.addEventListener('click', () => {
+        // Get current dropdown values
+        const catSelect = document.querySelector('.js-dashboard-category-filter');
+        const statSelect = document.getElementById('statusFilter');
+        if (catSelect) selectedCategory = catSelect.value;
+        if (statSelect) selectedStatus = statSelect.value;
+
+        // Save to localStorage
+        localStorage.setItem('dashboardCategory', selectedCategory);
+        localStorage.setItem('dashboardStatus', selectedStatus);
+
+        // Update dropdowns (redundant but ensures UI sync)
+        if (catSelect) catSelect.value = selectedCategory;
+        if (statSelect) statSelect.value = selectedStatus;
+
+        renderProductsTable();
+        hideFilterMenu();
+    });
 }
+
+function setupResetButton() {
+    // Remove previous event listener if any
+    const oldBtn = document.getElementById('resetFilters');
+    if (!oldBtn) return;
+    const newBtn = oldBtn.cloneNode(true);
+    oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+
+    newBtn.addEventListener('click', () => {
+        selectedCategory = 'All';
+        selectedStatus = 'All';
+
+        localStorage.removeItem('dashboardCategory');
+        localStorage.removeItem('dashboardStatus');
+
+        const catSelect = document.querySelector('.js-dashboard-category-filter');
+        const statSelect = document.getElementById('statusFilter');
+        if (catSelect) catSelect.value = 'All';
+        if (statSelect) statSelect.value = 'All';
+
+        renderProductsTable();
+        hideFilterMenu();
+    });
+}
+
 // Auto-init
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDashboard);
