@@ -25,7 +25,7 @@ if (product) {
                 </div>
                 <div class="product-actions">
                     <button class="btn1 js-add-to-cart" data-product-id="${product.id}">
-                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                        Add to Cart <i class="fas fa-bag-shopping"></i>
                     </button>
                 </div>
             </div>

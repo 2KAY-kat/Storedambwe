@@ -93,16 +93,15 @@ body {
     padding: 10px 16px;
     color: var(--sidebar-link);
     text-decoration: none;
-    font-size: 16px; /* Consistent font size */
+    font-size: 16px; 
     line-height: 24px;
-    gap: 12px; /* Consistent spacing between icon and text */
+    gap: 12px; 
 }
 
 .sidebar-list-item svg {
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    /* margin-right removed, using gap instead */
 }
 
 .sidebar-list-item:hover {
@@ -558,26 +557,36 @@ body {
 }
 
 .gridView {
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     margin: 0 -8px;
 }
 
+/* Responsive adjustments for grid columns */
+@media screen and (max-width: 1024px) {
+    .gridView {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 820px) {
+    .gridView {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 @media screen and (max-width: 520px) {
     .gridView {
+        grid-template-columns: 1fr;
+        gap: 8px;
         margin: 0;
     }
 }
 
-.gridView .products-header {
-    display: none;
-}
-
+/* Remove width from .gridView .products-row to allow grid to control sizing */
 .gridView .products-row {
-    margin: 8px;
-    width: calc(25% - 16px);
+    margin: 0;
     background-color: var(--app-content-secondary-color);
-    padding: 8px;
+    padding: 16px;
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s;
@@ -591,43 +600,6 @@ body {
 
 .gridView .products-row:hover .cell-more-button {
     display: flex;
-}
-
-@media screen and (max-width: 1024px) {
-    .gridView .products-row {
-        width: calc(33.3% - 16px);
-    }
-}
-
-@media screen and (max-width: 820px) {
-    .gridView .products-row {
-        width: calc(50% - 16px);
-    }
-}
-
-@media screen and (max-width: 520px) {
-    .gridView .products-row {
-        width: 100%;
-        margin: 8px 0;
-    }
-
-    .gridView .products-row:hover {
-        transform: none;
-    }
-
-
-
-
-    .dambwe-logo {
-        display: none;
-    }
-
-    .dambwe-mobile-logo {
-        display: inline-block;
-        height: 35px;
-        margin-top: 5px;
-    }
-
 }
 
 .gridView .products-row .cell-more-button {

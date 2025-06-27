@@ -22,7 +22,7 @@ header.forEach((header) => {
            
         <div class="nav-login-cart">
             <div class="searchIn fa-solid fa-search"> </div>
-            <a href="${header.link}"><i class="fa fa-shopping-cart"></i></a>
+            <a href="${header.link}"><i class="fa fa-bag-shopping"></i></a>
             <div class="nav-cart-count cart-quantity js-cart-quantity">0</div>
             <a href="#" class="js-dashboard-link">
                <div class="fa-solid fa-gauge"> </div>
@@ -113,7 +113,7 @@ function renderProductsByCategory(categoryName) {
                     <div class="view-details">
                         <button class="btn1 add-to-cart js-add-to-cart"
                             data-product-id="${product.id}"><i
-                            class="fa fa-shopping-cart"></i></button>
+                            class="fa fa-bag-shopping"></i></button>
                         <button class="btn2"><a href="view-details.html?id=${product.id}">Details</a></button>
                     </div>
                 </div>

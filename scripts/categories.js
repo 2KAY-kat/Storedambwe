@@ -1,47 +1,37 @@
 const categories = [{
     categoryID: '1aaa',
     sta_tus: 'active',
-    image: 'images/biscuitssnacks-1.jpg',
-    name: 'All',
-    description: 'From the cheapiest of your crunchy desires to the rmantic memories with chockoletes and biscuits.'
+    name: 'All'
 },{
     categoryID: '1aba',
-    image: 'images/biscuitssnacks-1.jpg',
     name: 'Electronics',
     description: 'From the cheapiest of your crunchy desires to the rmantic memories with chockoletes and biscuits.'
 },{
     categoryID: '1abb',
-    image: 'images/bacola-banner-01.jpg',
     name: 'Clothing & Accessories',
     description: 'Get your fresh from the farm greens at an affordable price'
 },{
     categoryID: '1abb',
-    image: 'images/bacola-banner-01.jpg',
     name: 'Food',
     description: 'Get your fresh from the farm greens at an affordable price'
 },{
     categoryID: '1abc',
-    image: 'images/stacked-t-shirts.jpg',
     name: 'Entertainment',
     description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
 },{
     categoryID: '1abc',
-    image: 'images/stacked-t-shirts.jpg',
     name: 'Merch',
     description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
 },{
     categoryID: '1abc',
-    image: 'images/stacked-t-shirts.jpg',
     name: 'Education',
     description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
 },{
     categoryID: '1abb',
-    image: 'images/bacola-banner-01.jpg',
     name: 'Housing',
     description: 'Get your fresh from the farm greens at an affordable price'
 },{
     categoryID: '1abc',
-    image: 'images/stacked-t-shirts.jpg',
     name: 'Vehicles',
     description: 'Get your top qulity local and international brands and Merch at an in town price in our Store'
 }];

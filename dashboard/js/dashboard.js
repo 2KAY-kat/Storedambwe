@@ -8,6 +8,9 @@ import { formatCurrency } from '../../scripts/utilities/calculate_cash.js';
 const productCategories = Array.from(new Set(products.map(p => p.category)));
 productCategories.unshift('All'); // Add 'All' at the start
 
+const productsStatus = Array.from(new Set(products.map(p => p.status)));
+productsStatus.unshift('All');
+
 const sections = {
     home: {
         header: 'Dashboard Home',
@@ -28,14 +31,12 @@ const sections = {
                         </button>
                         <div class="filter-menu">
                             <label>Category</label>
-                            <select class="js-dashboard-category-filter">
+                            <select id="categoryFilter" class="js-dashboard-category-filter">
                                 ${productCategories.map(cat => `<option>${cat}</option>`).join('')}
                             </select>
                             <label>Status</label>
-                            <select>
-                                <option>All Status</option>
-                                <option>Active</option>
-                                <option>Disabled</option>
+                            <select id="statusFilter">
+                                ${productsStatus.map(stat => `<option>${stat}</option>`).join('')}
                             </select>
                             <div class="filter-menu-buttons">
                                 <button class="filter-button reset">Reset</button>
@@ -99,9 +100,21 @@ function renderSections() {
     `).join('');
 }
 
+// Remove these lines (they cause the error):
+// document.getElementById('categoryFilter').addEventListener('change', function () {
+//     selectedCategory = this.value;
+//     renderProductsTable();
+// });
+
+// document.getElementById('statusFilter').addEventListener('change', function () {
+//     selectedStatus = this.value;
+//     renderProductsTable();
+// });
+
 // Render products table with filtering
-function renderProductsTable(selectedCategory = 'All') {
+function renderProductsTable() {
     const table = document.getElementById('dashboard-products-table');
+
     if (!table) return;
     // Always enable vertical scrolling for the products table
     table.style.maxHeight = "400px";
@@ -117,11 +130,15 @@ function renderProductsTable(selectedCategory = 'All') {
             <div class="product-cell price">Price</div>
         </div>
     `;
-    let filteredProducts = selectedCategory === 'All'
-        ? products
-        : products.filter(product => product.category === selectedCategory);
+    
+    const filteredProducts = products.filter(product => {
+        const categoryMatch = selectedCategory === 'All' || product.category === selectedCategory;
+        const statusMatch = selectedStatus === 'All' || product.status.toLowerCase() === selectedStatus.toLowerCase();
 
-    html += filteredProducts.map(product => {
+        return categoryMatch && statusMatch;
+    });
+
+    const filterHTML = filteredProducts.map(product => {
         let imgSrc = product.image;
         if (imgSrc.startsWith('./')) {
             imgSrc = '../' + imgSrc.substring(2);
@@ -136,7 +153,7 @@ function renderProductsTable(selectedCategory = 'All') {
             </div>
             <div class="product-cell category">${product.category}</div>
             <div class="product-cell status-cell">
-                <span class="status active">Active</span>
+                <span class="status ${product.status}">${product.status}</span>
             </div>
             <div class="product-cell sales">0</div>
             <div class="product-cell stock">0</div>
@@ -144,7 +161,7 @@ function renderProductsTable(selectedCategory = 'All') {
         </div>
         `;
     }).join('');
-    table.innerHTML = html;
+    table.innerHTML = filterHTML;
 }
 
 // Navigation logic
@@ -161,22 +178,33 @@ function setupSidebarNavigation() {
                 if (el) el.style.display = '';
                 if (section === 'products') {
                     renderProductsTable();
-                    setupCategoryFilter();
+                    setupProductFilters(); // <-- add this
                 }
             }
         });
     });
 }
 
-// Setup category filter event
-function setupCategoryFilter() {
-    const select = document.querySelector('.js-dashboard-category-filter');
-    if (select) {
-        select.onchange = function () {
-            renderProductsTable(this.value);
-        };
+// Add this function to setup filter event listeners after rendering products section
+function setupProductFilters() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', function () {
+            selectedCategory = this.value;
+            renderProductsTable();
+        });
+    }
+    const statusFilter = document.getElementById('statusFilter');
+    if (statusFilter) {
+        statusFilter.addEventListener('change', function () {
+            selectedStatus = this.value;
+            renderProductsTable();
+        });
     }
 }
+
+let selectedCategory = 'All';
+let selectedStatus = 'All';
 
 // Initialize dashboard
 function initDashboard() {
@@ -187,10 +215,16 @@ function initDashboard() {
     const productsSection = document.getElementById('section-products');
     if (productsSection && productsSection.style.display !== 'none') {
         renderProductsTable();
-        setupCategoryFilter();
+        setupProductFilters(); // <-- add this
     }
 }
 
+// Auto-init
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDashboard);
+} else {
+    initDashboard();
+}
 // Auto-init
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDashboard);
