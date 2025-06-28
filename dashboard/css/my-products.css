@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-@import url("./dashboard-styles.css");
 
 * {
     box-sizing: border-box;
@@ -775,5 +774,64 @@ body {
     .sidebar-list-item.active a i,
     .sidebar-list-item a:hover i {
         color: var(--action-color);
+    }
+}
+
+
+  .account-info.dropup {
+    position: relative;
+}
+
+.account-info .dropup-menu {
+    display: none;
+    position: absolute;
+    bottom: 45px;
+    right: 0;
+    background: var(--action-color-hover, #fff);
+    border: 1px solid var(--main-color, #ccc);
+    border-radius: 6px;
+    min-width: 140px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 200;
+    padding: 0;
+    transition: opacity 0.15s;
+}
+
+.account-info.dropup.open .dropup-menu {
+    display: block;
+}
+
+.dropup-menu .dropup-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    color: var(--filter-reset, #333);
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.dropup-menu .dropup-item:hover {
+    background: var(--app-bg, #007bff);
+    color: var(--text-color, #fff);
+}
+
+.account-info .fa-user {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+/* Responsive: dropup becomes dropdown on small screens */
+@media (max-width: 600px) {
+    .account-info .dropup-menu {
+        bottom: auto;
+        top: 55px;
+        right: 25px;
+        left: auto;
+        border-radius: 6px;
     }
 }
