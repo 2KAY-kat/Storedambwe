@@ -662,6 +662,10 @@ body {
     font-size: 20px;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
     .sidebar {
         position: fixed;

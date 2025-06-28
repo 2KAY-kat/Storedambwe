@@ -27,10 +27,11 @@ export function renderProductsTable() {
         }
         return `
         <div class="products-row">
-            <div class="product-cell image">
+                <a class="product-cell image" href="../../view-details.html?id=${product.id}">
                 <img src="${imgSrc}" alt="product">
                 <span>${product.name}</span>
-            </div>
+                </a>
+        
             <div class="product-cell category">${product.category}</div>
             <div class="product-cell status-cell">
                 <span class="status ${product.status}">${product.status}</span>
