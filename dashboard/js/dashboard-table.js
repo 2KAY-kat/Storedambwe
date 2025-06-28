@@ -1,6 +1,5 @@
 import { products } from '../../scripts/data.js';
 import { formatCurrency } from '../../scripts/utilities/calculate_cash.js';
-import { selectedCategory, selectedStatus } from './dashboard-filters.js';
 
 export function renderProductsTable() {
     const table = document.getElementById('dashboard-products-table');
@@ -18,14 +17,8 @@ export function renderProductsTable() {
             <div class="product-cell price">Price</div>
         </div>
     `;
-    
-    const filteredProducts = products.filter(product => {
-        const categoryMatch = selectedCategory.value === 'All' || product.category === selectedCategory.value;
-        const statusMatch = selectedStatus.value === 'All' || product.status.toLowerCase() === selectedStatus.value.toLowerCase();
-        return categoryMatch && statusMatch;
-    });
 
-    const filterHTML = filteredProducts.map(product => {
+    const productsHTML = products.map(product => {
         let imgSrc = product.image;
         if (imgSrc.startsWith('./')) {
             imgSrc = '../' + imgSrc.substring(2);
@@ -48,7 +41,7 @@ export function renderProductsTable() {
         </div>
         `;
     }).join('');
-    table.innerHTML = filterHTML;
+    table.innerHTML = productsHTML;
 }
 
 // Optionally, export a renderProductsGrid() if you want grid view support.
