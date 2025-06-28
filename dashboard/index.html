@@ -27,14 +27,20 @@
 
             </ul>
 
-            <div class="account-info">
-
+            <div class="account-info dropup">
                 <a href="#" data-section="profile" class="nav-icon">
                     <div class="account-info-name fa fa-user">
                         <span id="username"></span>
                     </div>
                 </a>
-                
+                <div class="dropup-menu">
+                    <a href="../index.html" class="dropup-item">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                    <a href="#" class="dropup-item" onclick="logout(); return false;">
+                        <i class="fa fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
             </div>
 
           
@@ -50,4 +56,32 @@
 <script src="./js/my-products.js"></script>
 <script src="./js/logout.js"></script>
 <script src="./js/check-session.js"></script>
+<script>
+    // Toggle dropup menu display
+    document.querySelectorAll('.account-info.dropup .nav-icon').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropup = this.parentElement;
+            dropup.classList.toggle('open');
+        });
+    });
+    // Hide dropup menu when clicking outside
+    document.addEventListener('click', function(e) {
+        document.querySelectorAll('.account-info.dropup').forEach(function(dropup) {
+            if (!dropup.contains(e.target)) {
+                dropup.classList.remove('open');
+            }
+        });
+    });
+    // Logout function (calls existing logout logic)
+    function logout() {
+        if (typeof window.logoutUser === 'function') {
+            window.logoutUser();
+        } else if (typeof logout === 'function') {
+            logout();
+        } else {
+            window.location.href = '../login.html';
+        }
+    }
+</script>
 </html>
