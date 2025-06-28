@@ -213,16 +213,29 @@ function setupFilterButton() {
     });
 }
 
-// Add this to update dropdowns and table from localStorage
+// Helper functions for filter state
+function getDashboardFilters() {
+    const filters = localStorage.getItem('dashboardFilters');
+    return filters ? JSON.parse(filters) : { category: 'All', status: 'All' };
+}
+
+function setDashboardFilters(filters) {
+    localStorage.setItem('dashboardFilters', JSON.stringify(filters));
+}
+
+function clearDashboardFilters() {
+    localStorage.removeItem('dashboardFilters');
+}
+
+// Restore filters from localStorage and update UI
 function restoreFiltersFromStorage() {
-    const savedCat = localStorage.getItem('dashboardCategory');
-    const savedStatus = localStorage.getItem('dashboardStatus');
-    if (savedCat) selectedCategory = savedCat;
-    if (savedStatus) selectedStatus = savedStatus;
+    const filters = getDashboardFilters();
+    selectedCategory = filters.category;
+    selectedStatus = filters.status;
     const catSelect = document.querySelector('.js-dashboard-category-filter');
     const statSelect = document.getElementById('statusFilter');
-    if (catSelect && savedCat) catSelect.value = savedCat;
-    if (statSelect && savedStatus) statSelect.value = savedStatus;
+    if (catSelect) catSelect.value = selectedCategory;
+    if (statSelect) statSelect.value = selectedStatus;
 }
 
 // Navigation logic
@@ -239,9 +252,10 @@ function setupSidebarNavigation() {
                 if (el) el.style.display = '';
                 if (section === 'products') {
                     restoreFiltersFromStorage();
+                    updateFilterButtonState(); // <-- Ensure button state is updated
                     renderProductsTable();
                     setupProductFilters();
-                    setupFilterButton(); // <-- Ensure filter button is set up after switching section
+                    setupFilterButton();
                 }
             }
         });
@@ -274,47 +288,40 @@ function initDashboard() {
     renderSections();
     setupSidebarNavigation();
     setupFilterButton();
-    // Remove redundant setupCategoryFilter and setupStatusFilter calls
     // Render products table and setup filter if products section is default
     const productsSection = document.getElementById('section-products');
     if (productsSection && productsSection.style.display !== 'none') {
         setupApplyButton();
         setupResetButton();
         restoreFiltersFromStorage();
+        updateFilterButtonState(); // <-- Ensure button state is updated on load
         renderProductsTable();
         setupProductFilters();
     }
 }
 
 function setupApplyButton() {
-    // Remove previous event listener if any
     const oldBtn = document.getElementById('applyFilters');
     if (!oldBtn) return;
     const newBtn = oldBtn.cloneNode(true);
     oldBtn.parentNode.replaceChild(newBtn, oldBtn);
 
     newBtn.addEventListener('click', () => {
-        // Get current dropdown values
         const catSelect = document.querySelector('.js-dashboard-category-filter');
         const statSelect = document.getElementById('statusFilter');
         if (catSelect) selectedCategory = catSelect.value;
         if (statSelect) selectedStatus = statSelect.value;
 
-        // Save to localStorage
-        localStorage.setItem('dashboardCategory', selectedCategory);
-        localStorage.setItem('dashboardStatus', selectedStatus);
+        setDashboardFilters({ category: selectedCategory, status: selectedStatus });
 
-        // Update dropdowns (redundant but ensures UI sync)
-        if (catSelect) catSelect.value = selectedCategory;
-        if (statSelect) statSelect.value = selectedStatus;
-
-        renderProductsTable();
-        hideFilterMenu();
+        restoreFiltersFromStorage(); // Sync UI and state
+        renderProductsTable();       // Show filtered products
+        updateFilterButtonState();
+        hideFilterMenu();            // Hide dropdown after applying
     });
 }
 
 function setupResetButton() {
-    // Remove previous event listener if any
     const oldBtn = document.getElementById('resetFilters');
     if (!oldBtn) return;
     const newBtn = oldBtn.cloneNode(true);
@@ -324,17 +331,27 @@ function setupResetButton() {
         selectedCategory = 'All';
         selectedStatus = 'All';
 
-        localStorage.removeItem('dashboardCategory');
-        localStorage.removeItem('dashboardStatus');
+        clearDashboardFilters();
 
-        const catSelect = document.querySelector('.js-dashboard-category-filter');
-        const statSelect = document.getElementById('statusFilter');
-        if (catSelect) catSelect.value = 'All';
-        if (statSelect) statSelect.value = 'All';
-
-        renderProductsTable();
-        hideFilterMenu();
+        restoreFiltersFromStorage(); // Sync UI and state
+        renderProductsTable();       // Show all products
+        updateFilterButtonState();
+        hideFilterMenu();            // Hide dropdown after resetting
     });
+}
+
+// Optionally, visually indicate if filters are active
+function updateFilterButtonState() {
+    const filters = getDashboardFilters();
+    const isActive = filters.category !== 'All' || filters.status !== 'All';
+    const filterBtn = document.querySelector('.jsFilter');
+    if (filterBtn) {
+        if (isActive) {
+            filterBtn.classList.add('filters-active');
+        } else {
+            filterBtn.classList.remove('filters-active');
+        }
+    }
 }
 
 // Auto-init
