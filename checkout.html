@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <title>Store Dambwe | CHECKOUT</title>
+    <title>Storedambwe | CHECKOUT</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+    <link rel="stylesheet" href="css/dashboard-loading.css">
+   
 </head>
 <body>
 
@@ -21,14 +22,16 @@
           </div>
 
     <div class="checkout-header-middle-section">
-        Checkout (<a class="return-to-home-link js-return-to-home-link"
+        Saved List (<a class="return-to-home-link js-return-to-home-link"
           href="index.html"></a>)
-      </div>
+    </div>
 
   <div class="checkout-header-right-section">
     
-    <div class="user-profile">
-      <img src="images/pear.jpg" alt="" />
+    <a href="dashboard/index.html" class="js-dashboard-link">
+               <div class="fa-solid fa-gauge"> </div>
+            </a>
+  
   </div>
     
   </div>
@@ -36,7 +39,9 @@
 </div>
 
 <div class="main">
-  <div class="page-title"> <i class="fa-solid fa-cart-shopping"></i> Review your order</div>
+  <div class="page-title"> <i class="fa-solid fa-bag-shopping"></i> Your Saved List Summery  <button id="clear-cart-btn" class="clear-cart-btn" style="display:none;">
+          <i class="fa fa-trash"></i> Delete All
+        </button></div>
 
   <div class="checkout-grid">
     <div class="order-summary js-order-summary">         
@@ -47,6 +52,56 @@
   </div>
 </div>
 <div id="toast" class="toast"></div>
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="modal-close-btn">&times;</span>
+    <div class="modal-body">
+      <i class="fa fa-trash"></i>
+      <h3 id="modal-title">Remove Item?</h3>
+      <p id="modal-message">Are you sure you want to remove this item from your saved list?</p>
+      <div class="modal-buttons">
+        <button id="modal-confirm-btn" class="modal-confirm-btn">Delete</button>
+        <button id="modal-cancel-btn" class="modal-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Centralised Loading Indicator -->
+<div id="dashboard-loading-screen" class="dashboard-loading-screen">
+  <div class="dashboard-loading-content">
+    <div class="loader">
+      <svg width="48" height="48" viewBox="0 0 50 50">
+        <circle cx="25" cy="25" r="20" fill="none" stroke="#007bff" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)">
+          <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+    <div class="dashboard-loading-message">
+      <strong>Login Required</strong><br>
+      You must log in before accessing the dashboard.<br>
+      Redirecting you to the login page...
+    </div>
+  </div>
+</div>
+
     <script type="module" src="scripts/checkout.js"></script>
+    <script>
+      // Centralised dashboard loading handler for all .js-dashboard-link
+      document.querySelectorAll('.js-dashboard-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const loadingScreen = document.getElementById('dashboard-loading-screen');
+          if (loadingScreen) {
+            loadingScreen.style.display = 'flex';
+          }
+          setTimeout(() => {
+            window.location.href = link.getAttribute('href');
+          }, 1200);
+        });
+      });
+    </script>
 </body>
 </html>

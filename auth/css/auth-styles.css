@@ -71,6 +71,10 @@
     color: var(--input-icon-color);
 }
 
+input[type] {
+    color: var(--accent-color);
+}
+
 i.toggle-password {
     left: auto; 
     right: 10px; 
@@ -102,7 +106,7 @@ i.toggle-password {
 
 .register-text {
     text-align: center;
-    color: var(--input-icon-color);
+    color: var(--input-register-color);
 }
 
 .register-text a,
@@ -160,7 +164,7 @@ i.toggle-password {
 }
 
 i.password-match-icon {
-    color: green; 
+    color: var(--success-color); 
     display: none;
     background-color: var(--main-color);
     border-radius: 50%;
@@ -193,4 +197,82 @@ i.password-mismatch-check {
     left: auto; 
     right: 40px; 
     position: absolute;
+}
+
+/* Responsive styles for auth pages */
+@media (max-width: 600px) {
+    .login-container {
+        align-items: flex-start;
+        padding: 28px 28px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .login-box {
+        margin: 100px 0;
+        padding: 2rem;
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+
+    .login-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .subtitle,
+    .subtitle.reset {
+        font-size: 1rem;
+        padding: 2px 0;
+    }
+
+    .input-group input {
+        font-size: 0.98rem;
+        padding: 10px 32px;
+    }
+
+    .input-group i {
+        font-size: 1rem;
+    }
+
+    .login-btn {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .register-text {
+        font-size: 0.98rem;
+    }
+
+    .checkout-header-middle-section .dambwe-logo,
+    .checkout-header-middle-section img.dambwe-logo {
+        width: 48px;
+        height: 48px;
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.98rem;
+    }
+
+    #password-match-message {
+        font-size: 0.75rem;
+        bottom: -22px;
+    }
+}
+
+/* Slightly larger mobile screens */
+@media (max-width: 400px) {
+    .login-box {
+        padding: 1.5rem;
+    }
+    .checkout-header-middle-section .dambwe-logo,
+    .checkout-header-middle-section img.dambwe-logo {
+        width: 40px;
+        height: 40px;
+    }
 }

@@ -56,7 +56,7 @@ function checkPasswordStrength(password) {
     const hasUpperCase = /[A-Z]/.test(password);
     const hasLowerCase = /[a-z]/.test(password);
     const hasNumbers = /\d/.test(password);
-    const hasSpecialChars = /[!@#$%^&*]/.test(password);
+    const hasSpecialChars = /[!@#$~`?%^&*]/.test(password);
     
     const strength = hasUpperCase + hasLowerCase + hasNumbers + hasSpecialChars;
     
@@ -86,3 +86,11 @@ function checkPasswordMatch() {
         mismatchIcon.style.display = 'inline-block';
     }
 }
+
+
+document.getElementById('login-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // You can add your own checks here if you want
+    localStorage.setItem('isLoggedIn', 'true');
+    window.location.href = '../dashboard/index.html'; // Adjust path if needed
+});

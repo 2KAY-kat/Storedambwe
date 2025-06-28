@@ -1,5 +1,5 @@
-export function formatCurrency(dollar) {
-    return (dollar * 1734).toFixed(2);
+export function formatCurrency(amount) {
+    return amount.toLocaleString('en-US');
 }
 
-export default formatCurrency; 
+export default formatCurrency;

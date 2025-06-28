@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <title>Storedambwe | DASHBOARD</title>
+    <link rel="stylesheet" href="./css/my-products.css">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="app-icon">
+                    <div class="nav-logo">
+                        <a href="../index.html">
+                            <img class="dambwe-logo" src="../images/favicon.png" alt="Logo">
+                            <img class="dambwe-mobile-logo" src="../images/favicon.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--- here is whwere we palce our navigation links -->
+            <ul class="sidebar-list">
+
+            </ul>
+
+            <div class="account-info dropup">
+                <a href="#" data-section="profile" class="nav-icon">
+                    <div class="account-info-name fa fa-user">
+                        <span id="username"></span>
+                    </div>
+                </a>
+                <div class="dropup-menu">
+                    <a href="../index.html" class="dropup-item">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                    <a href="#" class="dropup-item" onclick="logout(); return false;">
+                        <i class="fa fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+
+          
+        </div>
+
+        <div class="app-content">
+
+        </div>
+
+    </div>
+</body>
+<script type="module" src="./js/dashboard-init.js"></script>
+<script src="./js/my-products.js"></script>
+<script src="./js/logout.js"></script>
+<script src="./js/check-session.js"></script>
+<script>
+    // Toggle dropup menu display
+    document.querySelectorAll('.account-info.dropup .nav-icon').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropup = this.parentElement;
+            dropup.classList.toggle('open');
+        });
+    });
+    // Hide dropup menu when clicking outside
+    document.addEventListener('click', function(e) {
+        document.querySelectorAll('.account-info.dropup').forEach(function(dropup) {
+            if (!dropup.contains(e.target)) {
+                dropup.classList.remove('open');
+            }
+        });
+    });
+    // Logout function (calls existing logout logic)
+    function logout() {
+        if (typeof window.logoutUser === 'function') {
+            window.logoutUser();
+        } else if (typeof logout === 'function') {
+            logout();
+        } else {
+            window.location.href = '../login.html';
+        }
+    }
+</script>
+</html>
